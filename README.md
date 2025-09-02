@@ -15,6 +15,6 @@ Zip-filene kan lastes inn i Arketypedesigneren (AD) for å se templatet der:
 
 ---
 I mappen  **Eksportskjema** ligger alle filene som er laget til nå for å eksportere data til NORPREG  
-> ⚠️ Dette kan endre seg over tid
+> ⚠️ Dette kan endre seg - det er første utkast og ikke gjennomgått tilstreklig iterasjoner.
 ---
 I mappen **local** ligger alle templatfiler og arketypefiler, og som gjør at man kan man koble repoet direkte til AD.  
