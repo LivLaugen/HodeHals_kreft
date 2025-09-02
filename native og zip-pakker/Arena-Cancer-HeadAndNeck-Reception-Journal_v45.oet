@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?><template xmlns="openEHR/v1/Template">
+    <id>cb485986-b2f4-43ba-a3da-89f7d3fc019a</id>
+    <name>Arena-Cancer-HeadAndNeck-Reception-Journal_v45</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Liv Laugen / Vebjørn Arntzen</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>OUS</value>
+            </item>
+        </original_author>
+        <lifecycle_state>release_candidate</lifecycle_state>
+        <details>
+            <purpose>Innkomstjournal for for dagenheten ved ØNH. </purpose>
+            <use>Strukturert innkomstjournalnotat for ØNH dagenhet. </use>
+        </details>
+        <other_details>
+            <item>
+                <key>MetaDataSet:Sample Set </key>
+                <value>Template metadata sample set </value>
+            </item>
+            <item>
+                <key>Acknowledgements</key>
+                <value/>
+            </item>
+            <item>
+                <key>Business Process Level</key>
+                <value/>
+            </item>
+            <item>
+                <key>Care setting</key>
+                <value/>
+            </item>
+            <item>
+                <key>Client group</key>
+                <value/>
+            </item>
+            <item>
+                <key>Clinical Record Element</key>
+                <value/>
+            </item>
+            <item>
+                <key>Copyright</key>
+                <value/>
+            </item>
+            <item>
+                <key>Issues</key>
+                <value/>
+            </item>
+            <item>
+                <key>Owner</key>
+                <value/>
+            </item>
+            <item>
+                <key>Sign off</key>
+                <value/>
+            </item>
+            <item>
+                <key>Speciality</key>
+                <value/>
+            </item>
+            <item>
+                <key>User roles</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>7888553ec1f5dfb55ac654386c78015f</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>6562F732112B8B3F94790E178F4243A5</value>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>95.0.0</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value>9111a656-b89d-41d8-b4e2-3ee1b9bf9006</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::nb</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::nb</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Aktuelt" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Anamnese" path="/items" xsi:type="tem:SECTION">
+                <Item archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Anamnese" max="1" name="Aktuelt/Anamnese" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Problemstilling" path="/data[at0001]/events[at0002]"/>
+                    <Rule max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" path="/protocol[at0007]/items[at0008]" xsi:type="tem:CLUSTER">
+                        <Rule path="/items[at0001]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <excludedValues>local::at0002</excludedValues>
+                                <excludedValues>local::at0003</excludedValues>
+                                <excludedValues>local::at0004</excludedValues>
+                                <excludedValues>local::at0006</excludedValues>
+                                <excludedValues>local::at0007</excludedValues>
+                                <excludedValues>local::at0008</excludedValues>
+                                <excludedValues>local::at0009</excludedValues>
+                                <excludedValues>local::at0010</excludedValues>
+                                <excludedValues>local::at0011</excludedValues>
+                                <excludedValues>local::at0012</excludedValues>
+                                <excludedValues>local::at0013</excludedValues>
+                            </constraint>
+                        </Rule>
+                    </Items>
+                </Item>
+            </Item>
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Kontaktårsak/debuterende symptom" path="/items" xsi:type="tem:SECTION">
+                <Item archetype_id="openEHR-EHR-OBSERVATION.symptom_sign_screening.v1" concept_name="Kartleggingsspørsmål om symptomer/sykdomstegn" max="1" name="Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                    <Rule default="hode- og halskreft" path="/data[at0001]/events[at0002]/data[at0003]/items[at0034]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>hode- og halskreft</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                            <includedTypes>Boolean</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0029]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]"/>
+                    <Rule max="1" name="Første presenterende symptom/funn" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]"/>
+                    <Rule name="Første presenterende symptom/funn" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>Smerte</includedValues>
+                            <includedValues>Kul på halsen</includedValues>
+                            <includedValues>Nerveutfall</includedValues>
+                            <includedValues>Vekttap</includedValues>
+                            <includedValues>Heshet/stridor</includedValues>
+                            <includedValues>Incidental radiologi</includedValues>
+                            <includedValues>Nesetetthet</includedValues>
+                            <includedValues>Annet</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                            <includedTypes>Boolean</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0037]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0026]" xsi:type="tem:CLUSTER">
+                        <Rule name="Vekttap" path="/items[at0001]">
+                            <constraint xsi:type="tem:textConstraint">
+                                <includedValues>Vekttap</includedValues>
+                            </constraint>
+                        </Rule>
+                        <Rule max="0" path="/items[at0035]"/>
+                        <Rule max="0" path="/items[at0151]"/>
+                        <Rule name="Ev vekttap kg/tid" path="/items[at0002]"/>
+                        <Rule max="0" path="/items[at0175]"/>
+                        <Rule max="0" path="/items[at0186]"/>
+                        <Rule max="0" path="/items[at0152]"/>
+                        <Rule max="0" path="/items[at0164]"/>
+                        <Rule max="0" path="/items[at0028]"/>
+                        <Rule max="0" path="/items[at0021]">
+                            <constraint xsi:type="tem:multipleConstraint">
+                                <includedTypes>Coded_text</includedTypes>
+                                <includedTypes>Text</includedTypes>
+                            </constraint>
+                        </Rule>
+                        <Rule max="0" path="/items[at0026]">
+                            <constraint xsi:type="tem:quantityConstraint">
+                                <unitMagnitude>
+                                    <unit>1</unit>
+                                    <maxMagnitude>10.0</maxMagnitude>
+                                    <minMagnitude>0.0</minMagnitude>
+                                    <includesMaximum>true</includesMaximum>
+                                    <includesMinimum>true</includesMinimum>
+                                </unitMagnitude>
+                            </constraint>
+                        </Rule>
+                        <Rule max="0" path="/items[at0189]"/>
+                        <Rule max="0" path="/items[at0180]"/>
+                        <Rule max="0" path="/items[at0003]"/>
+                        <Rule max="0" path="/items[at0018]"/>
+                        <Rule max="0" path="/items[at0018]/items[at0019]"/>
+                        <Rule max="0" path="/items[at0018]/items[at0017]"/>
+                        <Rule max="0" path="/items[at0018]/items[at0056]"/>
+                        <Rule max="0" path="/items[at0165]"/>
+                        <Rule max="0" path="/items[at0165]/items[at0170]"/>
+                        <Rule max="0" path="/items[at0165]/items[at0171]"/>
+                        <Rule max="0" path="/items[at0165]/items[at0185]"/>
+                        <Rule max="0" path="/items[at0155]"/>
+                        <Rule max="0" path="/items[at0037]"/>
+                        <Rule max="0" path="/items[at0161]"/>
+                        <Rule max="0" path="/items[at0057]"/>
+                        <Rule max="0" path="/items[at0031]">
+                            <constraint xsi:type="tem:countConstraint">
+                                <minMagnitude>0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </constraint>
+                        </Rule>
+                        <Rule max="0" path="/items[at0163]"/>
+                    </Items>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.symptom_sign_screening.v1" concept_name="Kartleggingsspørsmål om symptomer/sykdomstegn" max="0" name="Kartleggingsspørsmål om symptomer/sykdomstegn  - andre sympt" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule default="hode- og halskreft" path="/data[at0001]/events[at0002]/data[at0003]/items[at0034]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>hode- og halskreft</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="1" name="Er det andre symptomer/funn/utvikling?" path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Boolean</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0029]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]"/>
+                    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <includedValues>Smerte</includedValues>
+                            <includedValues>Kul på halsen</includedValues>
+                            <includedValues>Nerveutfall</includedValues>
+                            <includedValues>Vekttap</includedValues>
+                            <includedValues>Heshet/stridor</includedValues>
+                            <includedValues>Incidental radiologi</includedValues>
+                            <includedValues>Nesetetthet</includedValues>
+                            <includedValues>Annet</includedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0005]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                            <includedTypes>Boolean</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0037]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Date_Time</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Item>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Naturlige funksjoner" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.progress_note.v1" concept_name="Tidfestet fritekst" max="1" name="Naturlige funksjoner" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Naturlige funksjoner" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" path="/protocol[at0005]/items[at0006]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0002</excludedValues>
+                            <excludedValues>local::at0003</excludedValues>
+                            <excludedValues>local::at0004</excludedValues>
+                            <excludedValues>local::at0005</excludedValues>
+                            <excludedValues>local::at0007</excludedValues>
+                            <excludedValues>local::at0008</excludedValues>
+                            <excludedValues>local::at0009</excludedValues>
+                            <excludedValues>local::at0010</excludedValues>
+                            <excludedValues>local::at0011</excludedValues>
+                            <excludedValues>local::at0012</excludedValues>
+                            <excludedValues>local::at0013</excludedValues>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.medication_screening.v1" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule default="hode- og halskreft" path="/data[at0022]/events[at0023]/data[at0001]/items[at0040]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>hode- og halskreft</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/data[at0022]/events[at0023]/data[at0001]/items[at0027]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Boolean</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule name="Beskrivelse av medikamenter ved innkomst" path="/data[at0022]/events[at0023]/data[at0001]/items[at0043]"/>
+                <Rule max="0" path="/data[at0022]/events[at0023]/data[at0001]/items[at0026]"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-OBSERVATION.problem_screening.v1" concept_name="Kartleggingsspørsmål om problemer eller diagnoser" max="1" name="Kartlegging om allergi/cave - føres inn i kritisk info" path="/content" xsi:type="tem:OBSERVATION">
+            <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0034]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>hode- og halskreft</includedValues>
+                </constraint>
+            </Rule>
+            <Rule max="1" name="Har pasienten noen kjente allergier?" path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]">
+                <constraint xsi:type="tem:textConstraint">
+                    <excludedValues>local::at0044</excludedValues>
+                </constraint>
+            </Rule>
+            <Rule max="1" name="Det er registrert i kritisk info til pasienten." path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Boolean</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0043]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Funksjonsstatus" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.ecog.v1" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Status presens" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Vitale målinger" path="/items" xsi:type="tem:SECTION">
+                <Item archetype_id="openEHR-EHR-OBSERVATION.height.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0001]/events[at0002]"/>
+                    <Rule name="Høyde (cm)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>[in_i]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>cm</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0021]"/>
+                    <Rule name="Simple" path="/data[at0001]/events[at0021]/data[at0003]"/>
+                    <Rule name="Høyde (cm)" path="/data[at0001]/events[at0021]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>[in_i]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>cm</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0021]/data[at0003]/items[at0018]"/>
+                    <Rule name="Simple" path="/data[at0001]/events[at0021]/data[at0003]"/>
+                    <Rule name="Høyde (cm)" path="/data[at0001]/events[at0021]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>[in_i]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>cm</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0021]/data[at0003]/items[at0018]"/>
+                    <Rule name="Tree" path="/data[at0001]/events[at0021]/state[at0013]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0021]/state[at0013]/items[at0014]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0021]/state[at0013]/items[at0019]"/>
+                    <Rule name="Tree" path="/data[at0001]/events[at0021]/state[at0013]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0021]/state[at0013]/items[at0014]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0021]/state[at0013]/items[at0019]"/>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.body_weight.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0002]/events[at0003]"/>
+                    <Rule name="Vekt (kg)" path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>g</excludedUnits>
+                            <excludedUnits>[lb_av]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>kg</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0008]/items[at0009]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0026]"/>
+                    <Rule name="Simple" path="/data[at0002]/events[at0026]/data[at0001]"/>
+                    <Rule name="Vekt (kg)" path="/data[at0002]/events[at0026]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>g</excludedUnits>
+                            <excludedUnits>[lb_av]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>kg</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at0026]/data[at0001]/items[at0024]"/>
+                    <Rule name="Simple" path="/data[at0002]/events[at0026]/data[at0001]"/>
+                    <Rule name="Vekt (kg)" path="/data[at0002]/events[at0026]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>g</excludedUnits>
+                            <excludedUnits>[lb_av]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>kg</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at0026]/data[at0001]/items[at0024]"/>
+                    <Rule name="state structure" path="/data[at0002]/events[at0026]/state[at0008]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0026]/state[at0008]/items[at0009]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0026]/state[at0008]/items[at0025]"/>
+                    <Rule name="state structure" path="/data[at0002]/events[at0026]/state[at0008]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0026]/state[at0008]/items[at0009]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0026]/state[at0008]/items[at0025]"/>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0002]/events[at0003]"/>
+                    <Rule name="Temperatur (°C)" path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>[degF]</excludedUnits>
+                            <unitMagnitude>
+                                <unit>Cel</unit>
+                                <maxMagnitude>100.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0063]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0029]/items[at0030]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0029]/items[at0041]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0029]/items[at0065]">
+                        <constraint xsi:type="tem:countConstraint">
+                            <minMagnitude>1</minMagnitude>
+                            <includesMaximum>false</includesMaximum>
+                            <includesMinimum>true</includesMinimum>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0020]/items[at0021]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.pulse_oximetry.v1" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0001]/events[at0002]"/>
+                    <Rule default="0/100" min="1" name="Oksygenmetning (%)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>ml/dl</unit>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0045]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]"/>
+                    <Rule max="0" path="/protocol[at0007]/items[at0009]"/>
+                    <Rule max="0" path="/protocol[at0007]/items[at0061]"/>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.respiration.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0001]/events[at0002]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0062]"/>
+                    <Rule min="1" name="Respirasjonsfrekvens (/min)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>/min</unit>
+                                <maxMagnitude>200.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0070]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0022]/items[at0065]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0022]/items[at0056]"/>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0001]/events[at0006]"/>
+                    <Rule min="1" name="Systolisk blodtrykk" path="/data[at0001]/events[at0006]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule min="1" name="Diastolisk blodtrykk" path="/data[at0001]/events[at0006]/data[at0003]/items[at0005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at1059]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>deg</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]"/>
+                    <Rule name="*blood pressure(en)" path="/data[at0001]/events[at1042]/data[at0003]"/>
+                    <Rule min="1" name="Systolisk blodtrykk" path="/data[at0001]/events[at1042]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule min="1" name="Diastolisk blodtrykk" path="/data[at0001]/events[at1042]/data[at0003]/items[at0005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1006]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1007]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1059]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule name="*blood pressure(en)" path="/data[at0001]/events[at1042]/data[at0003]"/>
+                    <Rule min="1" name="Systolisk blodtrykk" path="/data[at0001]/events[at1042]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule min="1" name="Diastolisk blodtrykk" path="/data[at0001]/events[at1042]/data[at0003]/items[at0005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1006]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1007]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>mm[Hg]</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at1059]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/data[at0003]/items[at0033]"/>
+                    <Rule name="*state structure(en)" path="/data[at0001]/events[at1042]/state[at0007]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at0008]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>deg</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule name="*state structure(en)" path="/data[at0001]/events[at1042]/state[at0007]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at0008]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1052]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1043]"/>
+                    <Rule max="0" path="/data[at0001]/events[at1042]/state[at0007]/items[at1005]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>deg</unit>
+                                <maxMagnitude>90.0</maxMagnitude>
+                                <minMagnitude>-90.0</minMagnitude>
+                                <includesMaximum>true</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at0013]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at0014]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/protocol[at0011]/items[at1035]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1038]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1054]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1055]"/>
+                    <Rule max="0" path="/protocol[at0011]/items[at1010]"/>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.pulse.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0002]/events[at0003]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]"/>
+                    <Rule min="1" name="Hjertefrekvens (/min)" path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>/min</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0005]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]"/>
+                    <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]"/>
+                    <Rule name="structure" path="/data[at0002]/events[at1036]/data[at0001]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1005]"/>
+                    <Rule min="1" name="Hjertefrekvens (/min)" path="/data[at0002]/events[at1036]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>/min</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at0005]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1055]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1030]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1022]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1023]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1059]"/>
+                    <Rule name="structure" path="/data[at0002]/events[at1036]/data[at0001]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1005]"/>
+                    <Rule min="1" name="Hjertefrekvens (/min)" path="/data[at0002]/events[at1036]/data[at0001]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <unitMagnitude>
+                                <unit>/min</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at0005]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1055]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1030]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1022]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1023]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/data[at0001]/items[at1059]"/>
+                    <Rule name="List" path="/data[at0002]/events[at1036]/state[at0012]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/state[at0012]/items[at0013]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/state[at0012]/items[at1018]"/>
+                    <Rule name="List" path="/data[at0002]/events[at1036]/state[at0012]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/state[at0012]/items[at0013]"/>
+                    <Rule max="0" path="/data[at0002]/events[at1036]/state[at0012]/items[at1018]"/>
+                    <Rule max="0" path="/protocol[at0010]/items[at1019]"/>
+                    <Rule max="0" path="/protocol[at0010]/items[at1037]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                            <includedTypes>Text</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v2" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0001]/events[at0002]"/>
+                    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                        <constraint xsi:type="tem:quantityConstraint">
+                            <excludedUnits>[lb_av]/[in_i]2</excludedUnits>
+                            <unitMagnitude>
+                                <unit>kg/m2</unit>
+                                <maxMagnitude>1000.0</maxMagnitude>
+                                <minMagnitude>0.0</minMagnitude>
+                                <includesMaximum>false</includesMaximum>
+                                <includesMinimum>true</includesMinimum>
+                            </unitMagnitude>
+                        </constraint>
+                    </Rule>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0012]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0014]/items[at0011]"/>
+                    <Rule max="0" path="/protocol[at0005]/items[at0006]"/>
+                    <Rule max="0" path="/protocol[at0005]/items[at0010]"/>
+                </Item>
+                <Item archetype_id="openEHR-EHR-OBSERVATION.body_surface_area.v1" max="1" path="/items" xsi:type="tem:OBSERVATION">
+                    <Rule max="1" min="1" name="Innkomst" path="/data[at0001]/events[at0002]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]"/>
+                    <Rule max="0" path="/data[at0001]/events[at0002]/state[at0020]/items[at0021]"/>
+                    <Rule path="/protocol[at0005]/items[at0009]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0011</excludedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule path="/protocol[at0005]/items[at0006]">
+                        <constraint xsi:type="tem:multipleConstraint">
+                            <includedTypes>Coded_text</includedTypes>
+                        </constraint>
+                    </Rule>
+                </Item>
+                <Item archetype_id="openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1" max="1" path="/items" xsi:type="tem:ADMIN_ENTRY">
+                    <Items archetype_id="openEHR-EHR-CLUSTER.kroppsoverflate_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.kroppsmasseindex_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.hoyde_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.vekt_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                        <Rule max="0" path="/items[at0004]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.kroppstemperatur_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.respirasjon_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.pulsoksymetri_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0003]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.blodtrykk_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0003]"/>
+                    </Items>
+                    <Items archetype_id="openEHR-EHR-CLUSTER.pulse_referanse.v1" max="1" path="/data[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                        <Rule max="0" path="/items[at0002]"/>
+                    </Items>
+                </Item>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.progress_note.v1" concept_name="Tidfestet fritekst" max="1" name="Status presens fritekst" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Status presens" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" path="/protocol[at0005]/items[at0006]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0002</excludedValues>
+                            <excludedValues>local::at0003</excludedValues>
+                            <excludedValues>local::at0004</excludedValues>
+                            <excludedValues>local::at0005</excludedValues>
+                            <excludedValues>local::at0006</excludedValues>
+                            <excludedValues>local::at0007</excludedValues>
+                            <excludedValues>local::at0008</excludedValues>
+                            <excludedValues>local::at0009</excludedValues>
+                            <excludedValues>local::at0011</excludedValues>
+                            <excludedValues>local::at0012</excludedValues>
+                            <excludedValues>local::at0013</excludedValues>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Fysisk undersøkelse" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1" concept_name="Funn ved fysisk undersøkelse" max="1" name="Funn ved Cor/Pulm undersøkelse" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Funn ved Cor/Pulm undersøkelse" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.exam.v1" concept_name="Funn ved fysisk undersøkelse" max="1" name="Funn ved ØNH undersøkelse" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Funn ved ØNH undersøkelse" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0011]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0008]"/>
+                <Rule max="0" path="/data[at0001]/events[at0002]/state[at0009]/items[at0013]"/>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Supplerende undersøkelser" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.progress_note.v1" concept_name="Tidfestet fritekst" max="1" name="Behov for spesielle undersøkelser fritekst" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Behov for spesielle undersøkelser" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" path="/protocol[at0005]/items[at0006]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0002</excludedValues>
+                            <excludedValues>local::at0003</excludedValues>
+                            <excludedValues>local::at0004</excludedValues>
+                            <excludedValues>local::at0005</excludedValues>
+                            <excludedValues>local::at0006</excludedValues>
+                            <excludedValues>local::at0007</excludedValues>
+                            <excludedValues>local::at0008</excludedValues>
+                            <excludedValues>local::at0009</excludedValues>
+                            <excludedValues>local::at0010</excludedValues>
+                            <excludedValues>local::at0012</excludedValues>
+                            <excludedValues>local::at0013</excludedValues>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" min="1" name="Vurdering/tiltak" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Klinisk sammendrag" max="1" min="1" name="Vurdering/tiltak" path="/items" xsi:type="tem:EVALUATION">
+                <Rule name="Vurdering/tiltak" path="/data[at0001]/items[at0002]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" max="1" path="/protocol[at0003]/items[at0004]" xsi:type="tem:CLUSTER">
+                    <Rule name="Datakategori" path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0002</excludedValues>
+                            <excludedValues>local::at0003</excludedValues>
+                            <excludedValues>local::at0004</excludedValues>
+                            <excludedValues>local::at0005</excludedValues>
+                            <excludedValues>local::at0006</excludedValues>
+                            <excludedValues>local::at0007</excludedValues>
+                            <excludedValues>local::at0008</excludedValues>
+                            <excludedValues>local::at0009</excludedValues>
+                            <excludedValues>local::at0010</excludedValues>
+                            <excludedValues>local::at0011</excludedValues>
+                            <excludedValues>local::at0013</excludedValues>
+                        </constraint>
+                    </Rule>
+                    <Rule name="Datakategori (2)" path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0002</excludedValues>
+                            <excludedValues>local::at0003</excludedValues>
+                            <excludedValues>local::at0004</excludedValues>
+                            <excludedValues>local::at0005</excludedValues>
+                            <excludedValues>local::at0006</excludedValues>
+                            <excludedValues>local::at0007</excludedValues>
+                            <excludedValues>local::at0008</excludedValues>
+                            <excludedValues>local::at0009</excludedValues>
+                            <excludedValues>local::at0010</excludedValues>
+                            <excludedValues>local::at0011</excludedValues>
+                            <excludedValues>local::at0012</excludedValues>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+        </Content>
+        <Content archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Templat-overskrift" max="1" name="Sammendrag" path="/content" xsi:type="tem:SECTION">
+            <Item archetype_id="openEHR-EHR-OBSERVATION.progress_note.v1" concept_name="Tidfestet fritekst" max="1" name="Sammendrag av innkomst (autogenerert)" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+                <Rule name="Sammendrag av innkomst (autogenerert)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]"/>
+                <Items archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" path="/protocol[at0005]/items[at0006]" xsi:type="tem:CLUSTER">
+                    <Rule path="/items[at0001]">
+                        <constraint xsi:type="tem:textConstraint">
+                            <excludedValues>local::at0002</excludedValues>
+                            <excludedValues>local::at0003</excludedValues>
+                            <excludedValues>local::at0004</excludedValues>
+                            <excludedValues>local::at0005</excludedValues>
+                            <excludedValues>local::at0006</excludedValues>
+                            <excludedValues>local::at0007</excludedValues>
+                            <excludedValues>local::at0008</excludedValues>
+                            <excludedValues>local::at0009</excludedValues>
+                            <excludedValues>local::at0010</excludedValues>
+                            <excludedValues>local::at0011</excludedValues>
+                            <excludedValues>local::at0012</excludedValues>
+                        </constraint>
+                    </Rule>
+                </Items>
+            </Item>
+            <Item archetype_id="openEHR-EHR-OBSERVATION.progress_note.v1" concept_name="Tidfestet fritekst" max="1" name="Tidsfestet fritekst" path="/items" xsi:type="tem:OBSERVATION">
+                <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+            </Item>
+        </Content>
+        <Context>
+            <Items archetype_id="openEHR-EHR-CLUSTER.template_semver_dips.v1" max="1" path="/context/other_context[at0001]/items[at0002]" xsi:type="tem:CLUSTER">
+                <Rule path="/items[at0001]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>no.dips.Oncology.HeadNeck.ReceptionJournal::Admission01::Oncology-Reception-Journal</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule path="/items[at0003]/items[at0004]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule path="/items[at0003]/items[at0005]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule path="/items[at0003]/items[at0006]">
+                    <constraint xsi:type="tem:countConstraint">
+                        <minMagnitude>0</minMagnitude>
+                        <includesMaximum>false</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0008]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">6562F732112B8B3F94790E178F4243A5</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.template_semver_dips.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">DA38D7FDB467BD8746408BF41D8C608D</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-SECTION.adhoc.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9D358EB1048EA1401802C3E1FDFB9A29</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.story.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EE2F29EA85093BEE4C828861D12B5F1D</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">8FED8C93F974769740A5244E1E1ADAE9</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.symptom_sign_screening.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2C619AEB7356EC3C65163C23789A74C1</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">76D51536B9250823AEE5C6A5B13CC60A</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.progress_note.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5E574D6BBAB51E31A81716AD14B6781D</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.medication_screening.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5C9E3A80B72BA67FE8BD2ACBBBEB894E</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.problem_screening.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">942CF0FB3C54F2949348CF29B1DD1E2D</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.ecog.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EE1ADF6D9C9E1EFDD7CC480B271D3E63</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.height.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7FCE9979883A8CE7E86C912A947C2467</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.body_weight.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">35F2C79623D501CBCB9DDF2AABEB22C2</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9C8B1DAB76432B26FB06DEA74B4AEA07</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.pulse_oximetry.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1FC83A6FE8F0873A82C7E7DDFA956766</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.respiration.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">0748428E47D758582931B1CD07F1E4CD</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">0EFF779D6FB4534C9B78E30C9211BCB2</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.pulse.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">571281563B4792B8BEC58F66D9756AC8</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v2" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">40A7F09DFB7ABCE6DDAF27A26A2385C6</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.body_surface_area.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">34DD848B4F67F69B8E7DC21E5AD244E9</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">902f4288e1990b51099ae34e4e98108e</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.kroppsoverflate_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">e5e69ba90df8d4775f75ba8af0e7defa</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.kroppsmasseindex_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">fd05d8910129d35feb51a1af02d6b991</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.hoyde_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">c6372d58e2f1e6ed19809175922487cd</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.vekt_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7099664f30bf6fbb43e4ac32e107f71f</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.kroppstemperatur_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">adbb0488ad66a05ef9800ff357caf532</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.respirasjon_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">16bb5eac013e8a116ab174b05d63c4e6</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pulsoksymetri_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F476755BAD09564716945C5520BDA0FB</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.blodtrykk_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">976fe162f91f38ee889f81fd99d3c4f4</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pulse_referanse.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">ea42b673ec4b1d97241079ad8a8175a0</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.exam.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">37BAF292F297B9A6F46D86B8931811C0</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" xmlns:tem="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F35DE47FF9CEF9324F8274276502C001</digest>
+    </integrity_checks>
+</template>
