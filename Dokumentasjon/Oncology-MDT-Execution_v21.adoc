@@ -1,4 +1,7 @@
-= Oncology-MDT-Execution
+:toc:
+= Oncology-MDT-Execution (MDT-referat)
+
+ Inneholder referat og behandlingsanbefaling fra MDT møtet.
 
 
 == Metadata
@@ -8,12 +11,6 @@ TemplateId:: Oncology-MDT-Execution_v21
 
 
 Archetype:: openEHR-EHR-COMPOSITION.encounter.v1
-
-
-
-
-:toc:
-
 
 
 
@@ -364,4 +361,5 @@ a|
 |====
 // Not supported rmType CODE_PHRASE
 // Not supported rmType CODE_PHRASE
+
 // Not supported rmType PARTY_PROXY
