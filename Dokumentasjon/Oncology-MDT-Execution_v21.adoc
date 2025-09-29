@@ -1,0 +1,367 @@
+= Oncology-MDT-Execution
+
+
+== Metadata
+
+
+TemplateId:: Oncology-MDT-Execution_v21
+
+
+Archetype:: openEHR-EHR-COMPOSITION.encounter.v1
+
+
+
+
+:toc:
+
+
+
+
+// Not supported rmType COMPOSITION
+== EVENT_CONTEXT
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*EVENT_CONTEXT* + 
+EVENT_CONTEXT: __
+5+a|*Template versjonsinformasjon* + 
+CLUSTER: _openEHR-EHR-CLUSTER.template_semver_dips.v1_
+|at0001| 0..1| DV_CODED_TEXT | Navn
+a|
+* Oncology-MDT-Execution (TemplateVersionNameMDT: Exe03)
+5+a|*Semver* + 
+CLUSTER: _at0003_
+|at0004| 0..1| DV_COUNT | Major
+|
+|at0005| 0..1| DV_COUNT | Minor
+|
+|at0006| 0..1| DV_COUNT | Patch
+|
+|====
+== Problem/diagnose
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Problem/diagnose* + 
+EVALUATION: _openEHR-EHR-EVALUATION.problem_diagnosis.v1_
+
+
+Det er i praksis ikke lett å oppnå et klart skille mellom et problem og en diagnose. I klinisk dokumentasjon med denne arketypen ses problem og diagnose som et kontinuum, med økende krav til detaljer og støttende evidens for å underbygge en diagnose.
+|at0002| 1..1| DV_TEXT | Problem/diagnosenavn
+a|
+
+
+Koding av navnet på problemet eller diagnosen med en terminologi er foretrukket, der det er mulig.
+|at0070| 0..1| DV_DATE_TIME | Sist oppdatert
+|
+|====
+== MDT
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*MDT* + 
+INSTRUCTION: _openEHR-EHR-INSTRUCTION.service_request.v1_
+// Not supported rmType ACTIVITY
+|at0121| 1..1| DV_TEXT | Tjenestenavn
+a|
+
+
+D
+|at0148| 0..1| DV_CODED_TEXT | Tjenestetype
+a|
+* multidisiplinært teammøte (SNOMED-CT: 312384001)
+
+
+Koding av tjenestetypen med et kodeverk er ønskelig, dersom tilgjengelig. Dersom "Tjenestenavn" er kodet kan dette elementet i noen tilfeller utledes fra koden. For eksempel klinisk biokjemi eller mikrobiologisk laboratorium, ultralyd eller CT.
+|at0152| 0..1| DV_CODED_TEXT | Klinisk indikasjon
+a|
+* Sarkom (no.onk.kreftgruppering: 01)
+* Hode og halskreft (no.onk.kreftgruppering: 02)
+* Hjernesvulst (no.onk.kreftgruppering: 03)
+* Brystkreft (no.onk.kreftgruppering: 04)
+* Lungekreft (no.onk.kreftgruppering: 05)
+* Kreft i fordøyelsessystemet (no.onk.kreftgruppering: 06)
+* Gynekologisk kreft (no.onk.kreftgruppering: 07)
+* Kreft i nyre og urinveier (no.onk.kreftgruppering: 08)
+* Benmargs- og blodkreft (no.onk.kreftgruppering: 09)
+* Lymfom (no.onk.kreftgruppering: 10)
+* Hudkreft (no.onk.kreftgruppering: 11)
+* Kreft i mannlige kjønnsorganer (no.onk.kreftgruppering: 12)
+* Kreft i endokrine kjertler (no.onk.kreftgruppering: 13)
+* Nevroendokrin kreft (no.onk.kreftgruppering: 14)
+* Barnekreft (no.onk.kreftgruppering: 15)
+* Øyekreft (no.onk.kreftgruppering: 16)
+* Svulst av ukjent opprinnelse / Annet kreft (no.onk.kreftgruppering: 17)
+
+
+For eksempel "angina" eller "diabetes mellitus type 1". Koding av indikasjonen med et kodeverk er ønskelig, dersom tilgjengelig. Dette dataelementet tillater flere forekomster.
+|at0040| 0..1| DV_DATE_TIME | Tid/dato for neste MDT
+|
+
+
+Dette dataelementet tillater registrering av timing for én tjeneste, enten som dato/tid, intervall av dato/tid, eller som en tekstbeskrivelsen som kan understøtte "neste tilgjengelige". I praksis vil klinikere ofte tenke i omtrentlig timing, for eksempel "revurdering om 3 måneder, 6 måneder eller 12 måneder. Siden kliniske systemer trenger mer eksakte tidsangivelser, vil "3 måneder" som regel konverteres til en eksakt dato 3 måneder fra registreringsdatoen, og lagres i dette dataelementet. Dersom det er behov for kompleks timing eller sekvenser av timing, bruk arketypen CLUSTER.service_direction i SLOTet "Kompleks timing". I disse tilfellene blir dette dataelementet redundant.
+|at0076| 0..1| DV_BOOLEAN | Supplerende informasjon
+|
+
+
+Registrer som SANN dersom ytterligere informasjon er identifisert, og vil bli ettersendt når den er tilgjengelig. For eksempel: ufullstendige prøvesvar.
+|at0078| 0..1| DV_TEXT | Informasjonsbeskrivelse
+a|
+// Not supported rmType DV_PARSABLE
+// Not supported rmType STRING
+|at0127| 0..1| DV_CODED_TEXT | Rekvisisjonsstatus
+a|
+* Ønsket (SNOMED-CT: 410526009)
+
+
+Status brukes for å vise om dette er den primære forespørselen, en endring eller supplerende informasjon. Koding med en terminologi foretrekkes, der det er mulig.
+|undefined| 0..1| DV_DATE_TIME | expiry_time
+|
+|====
+== MDT
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*MDT* + 
+ACTION: _openEHR-EHR-ACTION.service.v1_
+|at0011| 0..1| DV_TEXT | Tjenestenavn
+a|
+
+
+For eksempel "Sarkom MDT-møte" eller "Henvisning til fysioterapi". Koding av det spesifikke tjenestenavnet med en terminologi foretrekkes, der det er mulig.
+|at0014| 0..1| DV_CODED_TEXT | Tjenestetype
+a|
+* multidisiplinært teammøte (SNOMED-CT: 312384001)
+
+
+For eksempel "MDT-møte" eller "Henvisning".
+|at0013| 0..1| DV_TEXT | Beskrivelse
+a|
+
+
+#AI: Dette feltet oppsummerer resultatet av MDT-møtet, der mange fagpersoner deltar og informasjon fremkommer gjennom muntlig diskusjon. Innholdet kan være omfattende og detaljert, og skal fange opp all relevant informasjon som ikke dokumenteres i andre strukturerte felter i skjemaet.
+
+Feltet kan inkludere: vurderinger og konklusjoner fra møtet, viktige funn, drøftinger, begrunnelser for behandlingsvalg, uenigheter, pasientpreferanser og forslag til videre tiltak. Det skal også kunne romme medisinske detaljer fra utredningen dersom disse ikke fanges opp andre steder.
+
+Eksisterende tekst i feltet skal **aldri fjernes, endres eller forenkles**, med mindre det fremkommer eksplisitt i samtalen at informasjonen er feil, utdatert eller skal erstattes. AI kan legge til ny informasjon dersom det fremkommer ytterligere data i møtet eller senere oppdateringer.
+
+AI skal også være varsom med å tolke overlappende eller repeterte utsagn fra ulike deltakere, og bør prioritere en samlet, tydelig og presis gjengivelse av møtets samlede konklusjon – uten å utelate sentrale detaljer. Det er viktig å bevare den tverrfaglige karakteren i teksten.
+
+|at0032| 0..1| DV_DATE_TIME | Ønsket dato/tid
+|
+
+
+#AI: Utdra dato og eventuelt klokkeslett for et fremtidig MDT-møte dersom dette eksplisitt nevnes i møtet. Dersom ingen ny dato oppgis, skal feltet stå tomt. Eksisterende dato skal ikke endres med mindre en ny dato tydelig fremkommer i samtalen.
+|at0012| 0..1| DV_CODED_TEXT | Årsak
+a|
+* Sarkom (no.onk.kreftgruppering: 01)
+* Hode og halskreft (no.onk.kreftgruppering: 02)
+* Hjernesvulst (no.onk.kreftgruppering: 03)
+* Brystkreft (no.onk.kreftgruppering: 04)
+* Lungekreft (no.onk.kreftgruppering: 05)
+* Kreft i fordøyelsessystemet (no.onk.kreftgruppering: 06)
+* Gynekologisk kreft (no.onk.kreftgruppering: 07)
+* Kreft i nyre og urinveier (no.onk.kreftgruppering: 08)
+* Benmargs- og blodkreft (no.onk.kreftgruppering: 09)
+* Lymfom (no.onk.kreftgruppering: 10)
+* Hudkreft (no.onk.kreftgruppering: 11)
+* Kreft i mannlige kjønnsorganer (no.onk.kreftgruppering: 12)
+* Kreft i endokrine kjertler (no.onk.kreftgruppering: 13)
+* Nevroendokrin kreft (no.onk.kreftgruppering: 14)
+* Barnekreft (no.onk.kreftgruppering: 15)
+* Øyekreft (no.onk.kreftgruppering: 16)
+* Svulst av ukjent opprinnelse / Annet kreft (no.onk.kreftgruppering: 17)
+
+
+For eksempel årsaken til at tjenesten ble avlyst eller satt på vent. Det er ikke nødvendig å registrere en årsak for hvert prosesstrinn når forløpet går som planlagt. Dette dataelementet er ment for å kunne registrere årsaken til avvik fra et typisk forløp, som for eksempel "Utsatt" med årsaken "Pasienten hadde feber", eller "Avlyst" med årsaken "Pasienten ombestemte seg". Merk: Den kliniske indikasjonen for at tjenesten er ordinert kan registreres i arketypen INSTRUCTION.service_request (Helsetjenesteforespørsel).
+5+a|*Mdt tilleggsinformasjon dips* + 
+CLUSTER: _openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1_
+|at0001| 0..1| DV_BOOLEAN | Pasienten skal møte fysisk i MDT møte
+|
+|at0002| 0..1| DV_TEXT | Hvem informerer pasienten om konklusjonen fra møtet
+a|
+
+
+#AI: Utdra navnet på den personen som nevnes i samtalen som ansvarlig for å informere pasienten, dersom det oppgis eksplisitt. Hvis kun rolle nevnes, skal dette feltet stå tomt.
+5+a|*Enkeltdeltagere* + 
+CLUSTER: _at0004_
+
+
+#AI: Denne seksjonen beskriver én person som deltok i MDT-møtet. Utdra personens rolle og navn dersom dette eksplisitt nevnes. For hver navngitt deltaker i møtet skal det opprettes en separat forekomst av denne gruppen. Ikke fyll ut feltet dersom navn eller rolle ikke er nevnt.
+|at0005| 0..1| DV_TEXT | Rolle
+a|
+
+
+#AI: Utdra den faglige eller organisatoriske rollen som den navngitte personen har dersom dette fremkommer eksplisitt i samtalen. Eksempler kan være kontaktlege, onkolog, sykepleier, koordinator eller lignende.
+|at0006| 0..1| DV_TEXT | Navn
+a|
+
+
+#AI: Utdra navnet på den personen som nevnes i samtalen som ansvarlig for å informere pasienten, dersom det oppgis eksplisitt. Hvis kun rolle nevnes, skal dette feltet stå tomt.
+|at0003| 0..1| DV_TEXT | Sammendrag av deltagere
+a|
+|at0007| 0..1| DV_TEXT | Hvor følges pasienten opp videre
+a|
+
+
+#AI: Utdra informasjon om hvor pasienten skal følges opp videre etter MDT-møtet, slik det fremkommer i samtalen. Dette kan være en spesifikk avdeling, poliklinikk, fastlege, koordinator eller annet behandlingssted. Dersom det ikke eksplisitt nevnes, skal feltet stå tomt. Ikke endre eller fjern eksisterende verdi med mindre en ny oppfølgingsenhet klart angis.
+|at0028| 0..1| DV_TEXT | Kommentar
+a|
+|====
+== Templat-overskrift
+== Hoved/primærbehandling
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Hoved/primærbehandling* + 
+INSTRUCTION: _openEHR-EHR-INSTRUCTION.service_request.v1_
+// Not supported rmType ACTIVITY
+|at0121| 1..1| DV_CODED_TEXT | Hovedbehandling
+a|
+* Kirurgisk fjerning (SNOMED-CT: 128303001)
+* Ablation (SNOMED-CT: 64597002)
+* Stråleterapi (alle typer) (SNOMED-CT: 1287742003)
+* Fotonterapi - Stråle (ekstern) (SNOMED-CT: 1156506007)
+* Protonterapi -Stråle (ekstern) (SNOMED-CT: 10611004)
+* Elektronterapi - Stråle (ekstern) (SNOMED-CT: 45643008)
+* Brakyterapi - Stråle (intern) (SNOMED-CT: 152198000)
+* Radioisotope/systemisk radionuklidebehandling - Stråle (intern) (SNOMED-CT: 399315003)
+* Medikamentell behandling (alle typer) (SNOMED-CT: 416608005)
+* Kjemoterapi - Medikamentell (SNOMED-CT: 367336001)
+* Målrettet - Medikamentell (SNOMED-CT: 347531000202105)
+* Immunterapi - Medikamentell behandling (SNOMED-CT: 76334006)
+* Hormonterapi - Medikamentell (SNOMED-CT: 169413002)
+* Ingen kreftbehandling, aktiv oppfølging (SNOMED-CT: 373818007)
+* Ekspektans (avventende behandling) (SNOMED-CT: 438758006)
+* Annen behandling (SNOMED-CT: 74964007)
+
+
+#AI: Velg hovedbehandling fra tilgjengelige koder basert på det som eksplisitt omtales som anbefalt primærbehandling i MDT-møtet. Det kan være kirurgi, strålebehandling, medikamentell behandling eller observasjon. Bruk kun én kode som best representerer hovedintensjonen. Ikke kombiner flere behandlingsformer – disse skal angis som tillegg dersom aktuelt.
+|at0148| 0..1| DV_CODED_TEXT | Tjenestetype
+a|
+* Kreftbehandling (no.dips.mdt.treatment.type: C1)
+
+
+Koding av tjenestetypen med et kodeverk er ønskelig, dersom tilgjengelig. Dersom "Tjenestenavn" er kodet kan dette elementet i noen tilfeller utledes fra koden. For eksempel klinisk biokjemi eller mikrobiologisk laboratorium, ultralyd eller CT.
+|at0135| 0..1| DV_TEXT | Overordnet beskrivelse av behandling
+a|
+
+
+#AI: Beskriv den valgte hovedbehandlingen i fritekst med klinisk kontekst. Forklar behandlingsplanen, rekkefølge, hensyn, pasientens ønsker eller medisinske vurderinger som påvirker valg av behandling. Denne teksten utfyller den kodede behandlingen og skal ikke duplisere den. Eksisterende tekst skal beholdes og kan utvides med ny informasjon, men skal ikke endres eller fjernes med mindre det eksplisitt fremgår i møtet.
+|at0062| 0..*| DV_TEXT | Årsak for forespørsel
+a|
+
+
+Koding av forespørselsårsaken med et kodeverk er ønskelig, dersom tilgjengelig. Dette dataelementet tillater flere forekomster, for å gjøre det mulig for brukeren å registrere flere svar om nødvendig. For eksempel "følge opp diabeteskomplikasjoner".
+|at0065| 1..1| DV_CODED_TEXT | Intensjon behandling
+a|
+* Kurativt (no.dips.mdt.treatment.intention: K1)
+* Aktiv overvåkning (no.dips.mdt.treatment.intention: K2)
+* Livsforlengende - ikke kurativ (no.dips.mdt.treatment.intention: K3)
+* Symptomlindrende - ikke kurativ (no.dips.mdt.treatment.intention: K4)
+* Lokal kontroll - ikke kurativ (no.dips.mdt.treatment.intention: K5)
+* Ukjent (no.dips.mdt.treatment.intention: K6)
+
+
+#AI: Utdra hvilken intensjon behandlingen har, slik det eksplisitt fremkommer i møtet. Eksempler på intensjon kan være kurativ, livsforlengende eller symptomlindrende. Tillatte verdier er definert i kodelisten til feltet. Ikke fyll inn feltet med mindre intensjonen er klart uttrykt.
+5+a|*Organisasjon* + 
+CLUSTER: _openEHR-EHR-CLUSTER.organisation.v1_
+
+
+For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte.
+|at0001| 0..1| DV_CODED_TEXT | Behandlingssted
+a|
+* Egen institusjon (no.dips.mdt.treatment.provider: Egen institusjon)
+* Allmennpraktiker (no.dips.mdt.treatment.provider: Allmennpraktiker)
+* Utlandet (spesifiser) (no.dips.mdt.treatment.provider: Utlandet (spesifiser))
+* Annen norsk institusjon/spesialist (no.dips.mdt.treatment.provider: Annen norsk institusjon/spesialist)
+* Samarbeid egen institusjon og allmennpraktiker (no.dips.mdt.treatment.provider: Samarbeid egen institusjon og allmennpraktiker)
+* Ukjent (no.dips.mdt.treatment.provider: Ukjent)
+
+
+#AI: Utdra navnet på behandlingsstedet der anbefalt behandling skal gjennomføres, slik det eksplisitt nevnes i møtet. Dette kan være et konkret sykehus, en avdeling, poliklinikk eller institusjon. Ikke fyll ut feltet dersom behandlingssted ikke er angitt eksplisitt. Eksisterende verdi skal ikke endres uten tydelig ny instruksjon.
+|at0019| 0..1| DV_TEXT | Kommentar, spesifiser
+a|
+
+
+#AI: Utdra eventuelle tilleggsopplysninger eller spesifikasjoner knyttet til behandlingsstedet, slik som årsak til valg av sted, praktiske forhold, samhandling eller logistikk. Feltet brukes kun dersom slik informasjon nevnes i møtet, og skal ikke benyttes til å gjenta navnet på behandlingsstedet.
+// Not supported rmType DV_PARSABLE
+// Not supported rmType STRING
+|undefined| 0..1| DV_DATE_TIME | expiry_time
+|
+|====
+== Tilleggsbehandling ift. hovedbehandling
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Tilleggsbehandling ift. hovedbehandling* + 
+INSTRUCTION: _openEHR-EHR-INSTRUCTION.service_request.v1_
+// Not supported rmType ACTIVITY
+|at0121| 1..1| DV_CODED_TEXT | Tillegsbehandling
+a|
+* Neoadjuvant strålebehandling (no.dips.mdt.treatment.secondary: ST1)
+* Neoadjuvant medikamentell behandling (no.dips.mdt.treatment.secondary: ST2)
+* Neoauvant konkomitant stråle og medikamentell behandling (CRT) (no.dips.mdt.treatment.secondary: ST3)
+* Konkomitant medikamentell behandling (no.dips.mdt.treatment.secondary: ST4)
+* Konkomitant stråleterapi (Intraoperativ strålebehandling) (no.dips.mdt.treatment.secondary: ST5)
+* Adjuvant strålebehandling (no.dips.mdt.treatment.secondary: ST7)
+* Adjuvant medikamentell behandling (no.dips.mdt.treatment.secondary: ST8)
+* Adjuvant konkomitant stråle og medikamentell behandling (CRT) (no.dips.mdt.treatment.secondary: ST9)
+* Kirurgisk behandling av restsykdom/-tumor (Salvage kirurgi) (no.dips.mdt.treatment.secondary: ST10)
+* Stråling av restsykdom/-tumor (Salvage stråle) (no.dips.mdt.treatment.secondary: ST11)
+* Ingen kreftbehandling, aktiv oppfølging (no.dips.mdt.treatment.secondary: ST13)
+* Ekspektans (avventende behandling) (no.dips.mdt.treatment.secondary: ST14)
+* Ferdig behandlet (no.dips.mdt.treatment.secondary: ST15)
+* Annet (no.dips.mdt.treatment.secondary: ST12)
+
+
+#AI: Velg tilleggsbehandling fra tilgjengelige koder basert på det som eksplisitt omtales som tillegg til hovedbehandlingen i MDT-møtet. Dette kan være støttende eller supplerende behandling som medikamentell terapi, strålebehandling eller annen intervensjon.
+|at0148| 0..1| DV_CODED_TEXT | Tjenestetype
+a|
+* Kreftbehandling (no.dips.mdt.treatment.type: C1)
+
+
+Koding av tjenestetypen med et kodeverk er ønskelig, dersom tilgjengelig. Dersom "Tjenestenavn" er kodet kan dette elementet i noen tilfeller utledes fra koden. For eksempel klinisk biokjemi eller mikrobiologisk laboratorium, ultralyd eller CT.
+5+a|*Organisasjon* + 
+CLUSTER: _openEHR-EHR-CLUSTER.organisation.v1_
+
+
+For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte.
+|at0001| 0..1| DV_CODED_TEXT | Behandlingssted
+a|
+* Egen institusjon (no.dips.OncologyTreatmentLocations: Egen institusjon)
+* Allmennpraktiker (no.dips.OncologyTreatmentLocations: Allmennpraktiker)
+* Utlandet (spesifiser) (no.dips.OncologyTreatmentLocations: Utlandet (spesifiser))
+* Annen norsk institusjon/spesialist (no.dips.OncologyTreatmentLocations: Annen norsk institusjon/spesialist)
+* Samarbeid egen institusjon og allmennpraktiker (no.dips.OncologyTreatmentLocations: Samarbeid egen institusjon og allmennpraktiker)
+* Ukjent (no.dips.OncologyTreatmentLocations: Ukjent)
+
+
+#AI: Utdra navnet på behandlingsstedet der anbefalt behandling skal gjennomføres, slik det eksplisitt nevnes i møtet. Dette kan være et konkret sykehus, en avdeling, poliklinikk eller institusjon. Ikke fyll ut feltet dersom behandlingssted ikke er angitt eksplisitt. Eksisterende verdi skal ikke endres uten tydelig ny instruksjon.
+|at0019| 0..1| DV_TEXT | Kommentar, spesifiser
+a|
+
+
+#AI: Utdra eventuelle tilleggsopplysninger eller spesifikasjoner knyttet til behandlingsstedet, slik som årsak til valg av sted, praktiske forhold, samhandling eller logistikk. Feltet brukes kun dersom slik informasjon nevnes i møtet, og skal ikke benyttes til å gjenta navnet på behandlingsstedet.
+// Not supported rmType DV_PARSABLE
+// Not supported rmType STRING
+|undefined| 0..1| DV_DATE_TIME | expiry_time
+|
+|====
+== Sammendrag av MDT beslutning
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Sammendrag av MDT beslutning* + 
+OBSERVATION: _openEHR-EHR-OBSERVATION.progress_note.v1_
+|at0004| 0..1| DV_TEXT | Tidsfestet fritekst
+a|
+5+a|*Semistrukturert metadata dips* + 
+CLUSTER: _openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1_
+|at0001| 0..1| DV_CODED_TEXT | Klassifisering av informasjon
+a|
+* Kort sammendrag av MDT behandling (no.dips.classification.text: KortSammendragMDTBehandling)
+|====
+// Not supported rmType CODE_PHRASE
+// Not supported rmType CODE_PHRASE
+// Not supported rmType PARTY_PROXY
