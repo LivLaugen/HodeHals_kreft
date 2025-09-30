@@ -1,3 +1,4 @@
+:toc:
 = Oncology-Medical-Evaluation-HodeHals
 
 
@@ -12,7 +13,7 @@ Archetype:: openEHR-EHR-COMPOSITION.request.v1
 
 
 
-:toc:
+
 
 
 
@@ -2212,4 +2213,5 @@ a|
 |====
 // Not supported rmType CODE_PHRASE
 // Not supported rmType CODE_PHRASE
+
 // Not supported rmType PARTY_PROXY
