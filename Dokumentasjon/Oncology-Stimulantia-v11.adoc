@@ -1,3 +1,5 @@
+:toc:
+
 = Klinisk kontakt
 
 
@@ -125,7 +127,7 @@ Dette elementet kan også brukes til å ta inn fritekstlige beskrivelser av subs
 |
 |====
 == Andre substanser
-== Substansanamnese
+=== Substansanamnese
 [options="header", cols="3,3,5,5,30"]
 |====
 |NodeId|Attr.|RM Type| Name |Description
@@ -152,7 +154,7 @@ Dette elementet kan også brukes til å ta inn fritekstlige beskrivelser av subs
 |at0031| 0..1| DV_DATE_TIME | Sist oppdatert
 |
 |====
-== Tidfestet fritekst
+=== Tidfestet fritekst
 [options="header", cols="3,3,5,5,30"]
 |====
 |NodeId|Attr.|RM Type| Name |Description
@@ -171,4 +173,5 @@ a|
 |====
 // Not supported rmType CODE_PHRASE
 // Not supported rmType CODE_PHRASE
+
 // Not supported rmType PARTY_PROXY
