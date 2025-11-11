@@ -8,10 +8,14 @@ I mappen **Dokumentasjons** ligger:
 ---
 I mappen **native** og zip-pakker ligger:  
 - `.json`-filer (openEHR native)  
-- `.zip`-pakker med både `.json`-filer og alle arketyper brukt i templatet  
+- `.zip`-pakker med både `t.json`-filer og alle arketyper brukt i templatet  
 
 Zip-filene kan lastes inn i Arketypedesigneren (AD) for å se templatet der:  
 👉 [Arketypedesigneren](https://tools.openehr.org/designer/#/)
+
+---
+I mappen **Webtemplater** ligger .json filer som er lettere lesbare for utviklere.
+De er navnet med en w foran. 
 
 ---
 I mappen  **Eksportskjema** ligger alle filene som er laget til nå for å eksportere data til NORPREG  
