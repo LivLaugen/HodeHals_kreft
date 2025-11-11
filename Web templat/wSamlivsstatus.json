@@ -1,0 +1,155 @@
+{
+  "templateId" : "samlivsstatus",
+  "semVer" : "4.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "nb",
+  "languages" : [ "nb" ],
+  "tree" : {
+    "id" : "sosialt_nettverk",
+    "name" : "Sosialt nettverk",
+    "localizedName" : "Sosialt nettverk",
+    "rmType" : "EVALUATION",
+    "nodeId" : "openEHR-EHR-EVALUATION.social_network.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "nb" : "Sosialt nettverk"
+    },
+    "localizedDescriptions" : {
+      "nb" : "Gruppe av individer som er knyttet sammen ved sosial interaksjon og personlige forbindelser."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "samlivsstatus",
+      "name" : "Samlivsstatus",
+      "localizedName" : "Samlivsstatus",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "at0002",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Samlivsstatus"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Enkeltord eller frase som beskriver et individs nåværende forhold til en livspartner."
+      },
+      "annotations" : {
+        "comment" : "Det anbefales å kode sivilstatus med en terminologi dersom mulig. Det er stor variasjon i verdisett som benyttes på tvers av jurisdiksjoner. Det finnes lokale, myndighetspålagte verdisett eller terminologier som for eksempel SNOMED CT eller lignende. For eksempel Ugift, Gift, Registrert partner, Samboer, Skilt, Enke, Enkemann, Enslig."
+      },
+      "aqlPath" : "/data[at0001]/items[at0002,'Samlivsstatus']/value",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "1",
+          "label" : "Ugift/enslig",
+          "localizedLabels" : {
+            "nb" : "Ugift/enslig"
+          }
+        }, {
+          "value" : "2",
+          "label" : "Gift/samboer/registrert partner",
+          "localizedLabels" : {
+            "nb" : "Gift/samboer/registrert partner"
+          }
+        }, {
+          "value" : "3",
+          "label" : "Enke/enkemann/gjenlevende partner eller samboer",
+          "localizedLabels" : {
+            "nb" : "Enke/enkemann/gjenlevende partner eller samboer"
+          }
+        }, {
+          "value" : "4",
+          "label" : "Skilt/separert",
+          "localizedLabels" : {
+            "nb" : "Skilt/separert"
+          }
+        }, {
+          "value" : "9",
+          "label" : "Ukjent",
+          "localizedLabels" : {
+            "nb" : "Ukjent"
+          }
+        } ],
+        "terminology" : "no.samlivsstatus"
+      } ]
+    }, {
+      "id" : "kommentar",
+      "name" : "Kommentar",
+      "localizedName" : "Kommentar",
+      "rmType" : "DV_TEXT",
+      "nodeId" : "at0018",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Kommentar"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Ytterligere fritekst om det sosiale nettverket som ikke er registrert i andre felt."
+      },
+      "aqlPath" : "/data[at0001]/items[at0018]/value",
+      "inputs" : [ {
+        "type" : "TEXT"
+      } ]
+    }, {
+      "id" : "sist_oppdatert",
+      "name" : "Sist oppdatert",
+      "localizedName" : "Sist oppdatert",
+      "rmType" : "DV_DATE_TIME",
+      "nodeId" : "at0011",
+      "min" : 0,
+      "max" : 1,
+      "dependsOn" : [ "samlivsstatus", "kommentar" ],
+      "localizedNames" : {
+        "nb" : "Sist oppdatert"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Datoen da det sosiale nettverket siste ble oppdatert."
+      },
+      "annotations" : {
+        "comment" : "Det antas at det ved implementasjon legges til rette for at denne datoen bli oppdatert dersom en tilknyttet \"Person\"- eller \"Organisasjons\"- arketype legges til eller oppdateres."
+      },
+      "aqlPath" : "/protocol[at0010]/items[at0011]/value",
+      "inputs" : [ {
+        "type" : "DATETIME"
+      } ]
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "encoding",
+      "name" : "Encoding",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/encoding",
+      "inContext" : true
+    }, {
+      "id" : "subject",
+      "name" : "Subject",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/subject",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

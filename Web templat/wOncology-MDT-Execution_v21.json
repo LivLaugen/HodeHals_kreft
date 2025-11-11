@@ -1,0 +1,2310 @@
+{
+  "templateId" : "Oncology-MDT-Execution_v21",
+  "semVer" : "17.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "nb",
+  "languages" : [ "nb" ],
+  "tree" : {
+    "id" : "oncology-mdt-execution",
+    "name" : "Oncology-MDT-Execution",
+    "localizedName" : "Oncology-MDT-Execution",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "nb" : "Oncology-MDT-Execution"
+    },
+    "localizedDescriptions" : {
+      "nb" : "Interaksjon, kontakt eller omsorgshendelse mellom et individ og helsepersonell."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "template_versjonsinformasjon",
+        "name" : "Template versjonsinformasjon",
+        "localizedName" : "Template versjonsinformasjon",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.template_semver_dips.v1",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "nb" : "Template versjonsinformasjon"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Informasjon om templatens semantiske versjonering"
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]",
+        "children" : [ {
+          "id" : "navn",
+          "name" : "Navn",
+          "localizedName" : "Navn",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Navn"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*The name/title of the composition. Used to group information. (nb)"
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Exe03",
+              "label" : "Oncology-MDT-Execution",
+              "localizedLabels" : {
+                "nb" : "Oncology-MDT-Execution"
+              }
+            } ],
+            "terminology" : "TemplateVersionNameMDT"
+          } ]
+        }, {
+          "id" : "semver",
+          "name" : "Semver",
+          "localizedName" : "Semver",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Semver"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Semantisk versjonering av templaten. "
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]",
+          "children" : [ {
+            "id" : "major",
+            "name" : "Major",
+            "localizedName" : "Major",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Major"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Markerer brytende endringer i templaten"
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0004]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              },
+              "defaultValue" : 1
+            } ]
+          }, {
+            "id" : "minor",
+            "name" : "Minor",
+            "localizedName" : "Minor",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0005",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Minor"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Markerer endret funksjonalitet som er lagt til på en bakoverkompatibel måte "
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0005]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              },
+              "defaultValue" : 0
+            } ]
+          }, {
+            "id" : "patch",
+            "name" : "Patch",
+            "localizedName" : "Patch",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Patch"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Små endringer i form av feilrettinger, endringer av skrivefeil, etc. "
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0006]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              },
+              "defaultValue" : 0
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "problem_diagnose",
+      "name" : "Problem/diagnose",
+      "localizedName" : "Problem/diagnose",
+      "rmType" : "EVALUATION",
+      "nodeId" : "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Problem/diagnose"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Detaljer om én identifisert helsetilstand, skade, funksjonshemming eller annet forhold som påvirker et individs fysiske, mentale og/eller sosiale velvære."
+      },
+      "annotations" : {
+        "comment" : "Det er i praksis ikke lett å oppnå et klart skille mellom et problem og en diagnose. I klinisk dokumentasjon med denne arketypen ses problem og diagnose som et kontinuum, med økende krav til detaljer og støttende evidens for å underbygge en diagnose."
+      },
+      "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]",
+      "children" : [ {
+        "id" : "problem_diagnosenavn",
+        "name" : "Problem/diagnosenavn",
+        "localizedName" : "Problem/diagnosenavn",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Problem/diagnosenavn"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Identifisering av problemet eller diagnosen ved hjelp av navn."
+        },
+        "annotations" : {
+          "comment" : "Koding av navnet på problemet eller diagnosen med en terminologi er foretrukket, der det er mulig."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/data[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "sist_oppdatert",
+        "name" : "Sist oppdatert",
+        "localizedName" : "Sist oppdatert",
+        "rmType" : "DV_DATE_TIME",
+        "nodeId" : "at0070",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "problem_diagnosenavn" ],
+        "localizedNames" : {
+          "nb" : "Sist oppdatert"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Datoen da problemet eller diagnosen sist ble oppdatert."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/protocol[at0032]/items[at0070]/value",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "mdt",
+      "name" : "MDT",
+      "localizedName" : "MDT",
+      "rmType" : "INSTRUCTION",
+      "nodeId" : "openEHR-EHR-INSTRUCTION.service_request.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "MDT"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Forespørsel om utførelse av et MDT møte."
+      },
+      "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']",
+      "children" : [ {
+        "id" : "forespørsel",
+        "name" : "Forespørsel",
+        "localizedName" : "Forespørsel",
+        "rmType" : "ACTIVITY",
+        "nodeId" : "at0001",
+        "min" : 1,
+        "max" : -1,
+        "localizedNames" : {
+          "nb" : "Forespørsel"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Beskrivelse av tjenesten som forespørres."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]",
+        "children" : [ {
+          "id" : "tjenestenavn",
+          "name" : "Tjenestenavn",
+          "localizedName" : "Tjenestenavn",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0121",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Tjenestenavn"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Navn på forespurt tjeneste."
+          },
+          "annotations" : {
+            "comment" : "D"
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/description[at0009]/items[at0121]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "tjenestetype",
+          "name" : "Tjenestetype",
+          "localizedName" : "Tjenestetype",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0148",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Tjenestetype"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Kategorisering av den forespurte tjenesten."
+          },
+          "annotations" : {
+            "comment" : "Koding av tjenestetypen med et kodeverk er ønskelig, dersom tilgjengelig. Dersom \"Tjenestenavn\" er kodet kan dette elementet i noen tilfeller utledes fra koden. For eksempel klinisk biokjemi eller mikrobiologisk laboratorium, ultralyd eller CT."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/description[at0009]/items[at0148]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "312384001",
+              "label" : "multidisiplinært teammøte",
+              "localizedLabels" : {
+                "nb" : "multidisiplinært teammøte"
+              }
+            } ],
+            "terminology" : "SNOMED-CT"
+          } ]
+        }, {
+          "id" : "klinisk_indikasjon",
+          "name" : "Klinisk indikasjon",
+          "localizedName" : "Klinisk indikasjon",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0152",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Klinisk indikasjon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Den kliniske årsaken for den forespurte tjenesten."
+          },
+          "annotations" : {
+            "comment" : "For eksempel \"angina\" eller \"diabetes mellitus type 1\". Koding av indikasjonen med et kodeverk er ønskelig, dersom tilgjengelig. Dette dataelementet tillater flere forekomster."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/description[at0009]/items[at0152]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "01",
+              "label" : "Sarkom",
+              "localizedLabels" : {
+                "nb" : "Sarkom"
+              }
+            }, {
+              "value" : "02",
+              "label" : "Hode og halskreft",
+              "localizedLabels" : {
+                "nb" : "Hode og halskreft"
+              }
+            }, {
+              "value" : "03",
+              "label" : "Hjernesvulst",
+              "localizedLabels" : {
+                "nb" : "Hjernesvulst"
+              }
+            }, {
+              "value" : "04",
+              "label" : "Brystkreft",
+              "localizedLabels" : {
+                "nb" : "Brystkreft"
+              }
+            }, {
+              "value" : "05",
+              "label" : "Lungekreft",
+              "localizedLabels" : {
+                "nb" : "Lungekreft"
+              }
+            }, {
+              "value" : "06",
+              "label" : "Kreft i fordøyelsessystemet",
+              "localizedLabels" : {
+                "nb" : "Kreft i fordøyelsessystemet"
+              }
+            }, {
+              "value" : "07",
+              "label" : "Gynekologisk kreft",
+              "localizedLabels" : {
+                "nb" : "Gynekologisk kreft"
+              }
+            }, {
+              "value" : "08",
+              "label" : "Kreft i nyre og urinveier",
+              "localizedLabels" : {
+                "nb" : "Kreft i nyre og urinveier"
+              }
+            }, {
+              "value" : "09",
+              "label" : "Benmargs- og blodkreft",
+              "localizedLabels" : {
+                "nb" : "Benmargs- og blodkreft"
+              }
+            }, {
+              "value" : "10",
+              "label" : "Lymfom",
+              "localizedLabels" : {
+                "nb" : "Lymfom"
+              }
+            }, {
+              "value" : "11",
+              "label" : "Hudkreft",
+              "localizedLabels" : {
+                "nb" : "Hudkreft"
+              }
+            }, {
+              "value" : "12",
+              "label" : "Kreft i mannlige kjønnsorganer",
+              "localizedLabels" : {
+                "nb" : "Kreft i mannlige kjønnsorganer"
+              }
+            }, {
+              "value" : "13",
+              "label" : "Kreft i endokrine kjertler",
+              "localizedLabels" : {
+                "nb" : "Kreft i endokrine kjertler"
+              }
+            }, {
+              "value" : "14",
+              "label" : "Nevroendokrin kreft",
+              "localizedLabels" : {
+                "nb" : "Nevroendokrin kreft"
+              }
+            }, {
+              "value" : "15",
+              "label" : "Barnekreft",
+              "localizedLabels" : {
+                "nb" : "Barnekreft"
+              }
+            }, {
+              "value" : "16",
+              "label" : "Øyekreft",
+              "localizedLabels" : {
+                "nb" : "Øyekreft"
+              }
+            }, {
+              "value" : "17",
+              "label" : "Svulst av ukjent opprinnelse / Annet kreft",
+              "localizedLabels" : {
+                "nb" : "Svulst av ukjent opprinnelse / Annet kreft"
+              }
+            } ],
+            "terminology" : "no.onk.kreftgruppering"
+          } ]
+        }, {
+          "id" : "tid_dato_for_neste_mdt",
+          "name" : "Tid/dato for neste MDT",
+          "localizedName" : "Tid/dato for neste MDT",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0040",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Tid/dato for neste MDT"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Dato/tid, eller akseptabelt intervall av dato/tid, da tjenesten skal utføres."
+          },
+          "annotations" : {
+            "comment" : "Dette dataelementet tillater registrering av timing for én tjeneste, enten som dato/tid, intervall av dato/tid, eller som en tekstbeskrivelsen som kan understøtte \"neste tilgjengelige\". I praksis vil klinikere ofte tenke i omtrentlig timing, for eksempel \"revurdering om 3 måneder, 6 måneder eller 12 måneder. Siden kliniske systemer trenger mer eksakte tidsangivelser, vil \"3 måneder\" som regel konverteres til en eksakt dato 3 måneder fra registreringsdatoen, og lagres i dette dataelementet. Dersom det er behov for kompleks timing eller sekvenser av timing, bruk arketypen CLUSTER.service_direction i SLOTet \"Kompleks timing\". I disse tilfellene blir dette dataelementet redundant."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/description[at0009]/items[at0040,'Tid/dato for neste MDT']/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "supplerende_informasjon",
+          "name" : "Supplerende informasjon",
+          "localizedName" : "Supplerende informasjon",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0076",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Supplerende informasjon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Supplerende informasjon vil ettersendes forespørselen."
+          },
+          "annotations" : {
+            "comment" : "Registrer som SANN dersom ytterligere informasjon er identifisert, og vil bli ettersendt når den er tilgjengelig. For eksempel: ufullstendige prøvesvar."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/description[at0009]/items[at0076]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN",
+            "list" : [ {
+              "value" : "true",
+              "label" : "true"
+            } ]
+          } ]
+        }, {
+          "id" : "informasjonsbeskrivelse",
+          "name" : "Informasjonsbeskrivelse",
+          "localizedName" : "Informasjonsbeskrivelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0078",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Informasjonsbeskrivelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Beskrivelse av den supplerende informasjonen."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/description[at0009]/items[at0078]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "timing",
+          "name" : "Timing",
+          "rmType" : "DV_PARSABLE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/timing",
+          "inputs" : [ {
+            "suffix" : "value",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "formalism",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "action_archetype_id",
+          "name" : "Action_archetype_id",
+          "rmType" : "STRING",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/activities[at0001]/action_archetype_id",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "rekvisisjonsstatus",
+        "name" : "Rekvisisjonsstatus",
+        "localizedName" : "Rekvisisjonsstatus",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0127",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "forespørsel" ],
+        "localizedNames" : {
+          "nb" : "Rekvisisjonsstatus"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Status for forespørselen oppgitt av rekvirenten."
+        },
+        "annotations" : {
+          "comment" : "Status brukes for å vise om dette er den primære forespørselen, en endring eller supplerende informasjon. Koding med en terminologi foretrekkes, der det er mulig."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/protocol[at0008]/items[at0127]/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "410526009",
+            "label" : "Ønsket",
+            "localizedLabels" : {
+              "nb" : "Ønsket"
+            }
+          } ],
+          "terminology" : "SNOMED-CT"
+        } ]
+      }, {
+        "id" : "expiry_time",
+        "name" : "expiry_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 0,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/expiry_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ]
+      }, {
+        "id" : "narrative",
+        "name" : "Narrative",
+        "rmType" : "DV_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/narrative",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.service_request.v1,'MDT']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "mdt2",
+      "name" : "MDT",
+      "localizedName" : "MDT",
+      "rmType" : "ACTION",
+      "nodeId" : "openEHR-EHR-ACTION.service.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "MDT"
+      },
+      "localizedDescriptions" : {
+        "nb" : "En helserelatert tjeneste eller aktivitet utført av en kliniker, organisasjon eller virksomhet."
+      },
+      "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']",
+      "children" : [ {
+        "id" : "ism_transition",
+        "name" : "Ism_transition",
+        "rmType" : "ISM_TRANSITION",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/ism_transition",
+        "children" : [ {
+          "id" : "current_state",
+          "name" : "Current_state",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/ism_transition/current_state",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "530",
+              "label" : "suspended"
+            }, {
+              "value" : "245",
+              "label" : "active"
+            }, {
+              "value" : "531",
+              "label" : "aborted"
+            }, {
+              "value" : "532",
+              "label" : "completed"
+            }, {
+              "value" : "533",
+              "label" : "expired"
+            }, {
+              "value" : "526",
+              "label" : "planned"
+            }, {
+              "value" : "527",
+              "label" : "postponed"
+            }, {
+              "value" : "528",
+              "label" : "cancelled"
+            }, {
+              "value" : "529",
+              "label" : "scheduled"
+            } ]
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "transition",
+          "name" : "Transition",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 0,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/ism_transition/transition",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "careflow_step",
+          "name" : "Careflow_step",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 0,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/ism_transition/careflow_step",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0002",
+              "label" : "Tjeneste planlagt",
+              "localizedLabels" : {
+                "nb" : "Tjeneste planlagt"
+              },
+              "currentStates" : [ "526" ]
+            }, {
+              "value" : "at0026",
+              "label" : "Tjenesteforespørsel sendt",
+              "localizedLabels" : {
+                "nb" : "Tjenesteforespørsel sendt"
+              },
+              "currentStates" : [ "526" ]
+            }, {
+              "value" : "at0035",
+              "label" : "Tjenesteforespørsel mottatt",
+              "localizedLabels" : {
+                "nb" : "Tjenesteforespørsel mottatt"
+              },
+              "currentStates" : [ "526" ]
+            }, {
+              "value" : "at0008",
+              "label" : "Tjeneste utsatt",
+              "localizedLabels" : {
+                "nb" : "Tjeneste utsatt"
+              },
+              "currentStates" : [ "527" ]
+            }, {
+              "value" : "at0009",
+              "label" : "Tjeneste avlyst",
+              "localizedLabels" : {
+                "nb" : "Tjeneste avlyst"
+              },
+              "currentStates" : [ "528" ]
+            }, {
+              "value" : "at0003",
+              "label" : "Tjeneste tidfestet",
+              "localizedLabels" : {
+                "nb" : "Tjeneste tidfestet"
+              },
+              "currentStates" : [ "529" ]
+            }, {
+              "value" : "at0004",
+              "label" : "Tjeneste utført",
+              "localizedLabels" : {
+                "nb" : "Tjeneste utført"
+              },
+              "currentStates" : [ "245" ]
+            }, {
+              "value" : "at0010",
+              "label" : "Tjeneste midlertidig stanset",
+              "localizedLabels" : {
+                "nb" : "Tjeneste midlertidig stanset"
+              },
+              "currentStates" : [ "530" ]
+            }, {
+              "value" : "at0006",
+              "label" : "Tjeneste avbrutt",
+              "localizedLabels" : {
+                "nb" : "Tjeneste avbrutt"
+              },
+              "currentStates" : [ "531" ]
+            }, {
+              "value" : "at0023",
+              "label" : "Tjeneste utløpt",
+              "localizedLabels" : {
+                "nb" : "Tjeneste utløpt"
+              },
+              "currentStates" : [ "533" ]
+            }, {
+              "value" : "at0005",
+              "label" : "Tjeneste fullført",
+              "localizedLabels" : {
+                "nb" : "Tjeneste fullført"
+              },
+              "currentStates" : [ "532" ]
+            } ]
+          } ],
+          "inContext" : true
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "tjenestenavn",
+        "name" : "Tjenestenavn",
+        "localizedName" : "Tjenestenavn",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0011",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Tjenestenavn"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Den kliniske tjenesten som utføres."
+        },
+        "annotations" : {
+          "comment" : "For eksempel \"Sarkom MDT-møte\" eller \"Henvisning til fysioterapi\". Koding av det spesifikke tjenestenavnet med en terminologi foretrekkes, der det er mulig."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[at0011]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "tjenestetype",
+        "name" : "Tjenestetype",
+        "localizedName" : "Tjenestetype",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0014",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Tjenestetype"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Typen tjeneste som utføres."
+        },
+        "annotations" : {
+          "comment" : "For eksempel \"MDT-møte\" eller \"Henvisning\"."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[at0014]/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "312384001",
+            "label" : "multidisiplinært teammøte",
+            "localizedLabels" : {
+              "nb" : "multidisiplinært teammøte"
+            }
+          } ],
+          "terminology" : "SNOMED-CT"
+        } ]
+      }, {
+        "id" : "beskrivelse",
+        "name" : "Beskrivelse",
+        "localizedName" : "Beskrivelse",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0013",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Beskrivelse"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstbeskrivelse av tjenesten, som passer for prosesstrinnet."
+        },
+        "annotations" : {
+          "comment" : "#AI: Dette feltet oppsummerer resultatet av MDT-møtet, der mange fagpersoner deltar og informasjon fremkommer gjennom muntlig diskusjon. Innholdet kan være omfattende og detaljert, og skal fange opp all relevant informasjon som ikke dokumenteres i andre strukturerte felter i skjemaet.\n\nFeltet kan inkludere: vurderinger og konklusjoner fra møtet, viktige funn, drøftinger, begrunnelser for behandlingsvalg, uenigheter, pasientpreferanser og forslag til videre tiltak. Det skal også kunne romme medisinske detaljer fra utredningen dersom disse ikke fanges opp andre steder.\n\nEksisterende tekst i feltet skal **aldri fjernes, endres eller forenkles**, med mindre det fremkommer eksplisitt i samtalen at informasjonen er feil, utdatert eller skal erstattes. AI kan legge til ny informasjon dersom det fremkommer ytterligere data i møtet eller senere oppdateringer.\n\nAI skal også være varsom med å tolke overlappende eller repeterte utsagn fra ulike deltakere, og bør prioritere en samlet, tydelig og presis gjengivelse av møtets samlede konklusjon – uten å utelate sentrale detaljer. Det er viktig å bevare den tverrfaglige karakteren i teksten.\n"
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[at0013]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "ønsket_dato_tid",
+        "name" : "Ønsket dato/tid",
+        "localizedName" : "Ønsket dato/tid",
+        "rmType" : "DV_DATE_TIME",
+        "nodeId" : "at0032",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Ønsket dato/tid"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Den estimerte datoen og/eller tidspunktet for når tjenesten ønskes utført."
+        },
+        "annotations" : {
+          "comment" : "#AI: Utdra dato og eventuelt klokkeslett for et fremtidig MDT-møte dersom dette eksplisitt nevnes i møtet. Dersom ingen ny dato oppgis, skal feltet stå tomt. Eksisterende dato skal ikke endres med mindre en ny dato tydelig fremkommer i samtalen."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[at0032]/value",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ]
+      }, {
+        "id" : "årsak",
+        "name" : "Årsak",
+        "localizedName" : "Årsak",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0012",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Årsak"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Begrunnelse for at aktiviteten eller prosesstrinnet for den aktuelle tjenesten ble utført."
+        },
+        "annotations" : {
+          "comment" : "For eksempel årsaken til at tjenesten ble avlyst eller satt på vent. Det er ikke nødvendig å registrere en årsak for hvert prosesstrinn når forløpet går som planlagt. Dette dataelementet er ment for å kunne registrere årsaken til avvik fra et typisk forløp, som for eksempel \"Utsatt\" med årsaken \"Pasienten hadde feber\", eller \"Avlyst\" med årsaken \"Pasienten ombestemte seg\". Merk: Den kliniske indikasjonen for at tjenesten er ordinert kan registreres i arketypen INSTRUCTION.service_request (Helsetjenesteforespørsel)."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[at0012]/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "01",
+            "label" : "Sarkom",
+            "localizedLabels" : {
+              "nb" : "Sarkom"
+            }
+          }, {
+            "value" : "02",
+            "label" : "Hode og halskreft",
+            "localizedLabels" : {
+              "nb" : "Hode og halskreft"
+            }
+          }, {
+            "value" : "03",
+            "label" : "Hjernesvulst",
+            "localizedLabels" : {
+              "nb" : "Hjernesvulst"
+            }
+          }, {
+            "value" : "04",
+            "label" : "Brystkreft",
+            "localizedLabels" : {
+              "nb" : "Brystkreft"
+            }
+          }, {
+            "value" : "05",
+            "label" : "Lungekreft",
+            "localizedLabels" : {
+              "nb" : "Lungekreft"
+            }
+          }, {
+            "value" : "06",
+            "label" : "Kreft i fordøyelsessystemet",
+            "localizedLabels" : {
+              "nb" : "Kreft i fordøyelsessystemet"
+            }
+          }, {
+            "value" : "07",
+            "label" : "Gynekologisk kreft",
+            "localizedLabels" : {
+              "nb" : "Gynekologisk kreft"
+            }
+          }, {
+            "value" : "08",
+            "label" : "Kreft i nyre og urinveier",
+            "localizedLabels" : {
+              "nb" : "Kreft i nyre og urinveier"
+            }
+          }, {
+            "value" : "09",
+            "label" : "Benmargs- og blodkreft",
+            "localizedLabels" : {
+              "nb" : "Benmargs- og blodkreft"
+            }
+          }, {
+            "value" : "10",
+            "label" : "Lymfom",
+            "localizedLabels" : {
+              "nb" : "Lymfom"
+            }
+          }, {
+            "value" : "11",
+            "label" : "Hudkreft",
+            "localizedLabels" : {
+              "nb" : "Hudkreft"
+            }
+          }, {
+            "value" : "12",
+            "label" : "Kreft i mannlige kjønnsorganer",
+            "localizedLabels" : {
+              "nb" : "Kreft i mannlige kjønnsorganer"
+            }
+          }, {
+            "value" : "13",
+            "label" : "Kreft i endokrine kjertler",
+            "localizedLabels" : {
+              "nb" : "Kreft i endokrine kjertler"
+            }
+          }, {
+            "value" : "14",
+            "label" : "Nevroendokrin kreft",
+            "localizedLabels" : {
+              "nb" : "Nevroendokrin kreft"
+            }
+          }, {
+            "value" : "15",
+            "label" : "Barnekreft",
+            "localizedLabels" : {
+              "nb" : "Barnekreft"
+            }
+          }, {
+            "value" : "16",
+            "label" : "Øyekreft",
+            "localizedLabels" : {
+              "nb" : "Øyekreft"
+            }
+          }, {
+            "value" : "17",
+            "label" : "Svulst av ukjent opprinnelse / Annet kreft",
+            "localizedLabels" : {
+              "nb" : "Svulst av ukjent opprinnelse / Annet kreft"
+            }
+          } ],
+          "terminology" : "no.onk.kreftgruppering"
+        } ]
+      }, {
+        "id" : "mdt_tilleggsinformasjon_dips",
+        "name" : "Mdt tilleggsinformasjon dips",
+        "localizedName" : "Mdt tilleggsinformasjon dips",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "nb" : "Mdt tilleggsinformasjon dips"
+        },
+        "localizedDescriptions" : {
+          "nb" : "DIPS tilleggsinformasjon til MDT møtet."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]",
+        "children" : [ {
+          "id" : "pasienten_skal_møte_fysisk_i_mdt_møte",
+          "name" : "Pasienten skal møte fysisk i MDT møte",
+          "localizedName" : "Pasienten skal møte fysisk i MDT møte",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Pasienten skal møte fysisk i MDT møte"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Angir om pasienten skal møte fysisk i mdt møte"
+          },
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "hvem_informerer_pasienten_om_konklusjonen_fra_møtet",
+          "name" : "Hvem informerer pasienten om konklusjonen fra møtet",
+          "localizedName" : "Hvem informerer pasienten om konklusjonen fra møtet",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0002",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Hvem informerer pasienten om konklusjonen fra møtet"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Angir hvem som skal informere pasienten om konklusjon av møte. "
+          },
+          "annotations" : {
+            "comment" : "#AI: Utdra navnet på den personen som nevnes i samtalen som ansvarlig for å informere pasienten, dersom det oppgis eksplisitt. Hvis kun rolle nevnes, skal dette feltet stå tomt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0002]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "enkeltdeltagere",
+          "name" : "Enkeltdeltagere",
+          "localizedName" : "Enkeltdeltagere",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Enkeltdeltagere"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Deltakere på MDT møtet."
+          },
+          "annotations" : {
+            "comment" : "#AI: Denne seksjonen beskriver én person som deltok i MDT-møtet. Utdra personens rolle og navn dersom dette eksplisitt nevnes. For hver navngitt deltaker i møtet skal det opprettes en separat forekomst av denne gruppen. Ikke fyll ut feltet dersom navn eller rolle ikke er nevnt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0004]",
+          "children" : [ {
+            "id" : "rolle",
+            "name" : "Rolle",
+            "localizedName" : "Rolle",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0005",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Rolle"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Rollen til deltaker i MDT møtet."
+            },
+            "annotations" : {
+              "comment" : "#AI: Utdra den faglige eller organisatoriske rollen som den navngitte personen har dersom dette fremkommer eksplisitt i samtalen. Eksempler kan være kontaktlege, onkolog, sykepleier, koordinator eller lignende."
+            },
+            "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0004]/items[at0005]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "navn",
+            "name" : "Navn",
+            "localizedName" : "Navn",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Navn"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Navnet til deltaker i MDT møtet."
+            },
+            "annotations" : {
+              "comment" : "#AI: Utdra navnet på den personen som nevnes i samtalen som ansvarlig for å informere pasienten, dersom det oppgis eksplisitt. Hvis kun rolle nevnes, skal dette feltet stå tomt."
+            },
+            "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0004]/items[at0006]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "sammendrag_av_deltagere",
+          "name" : "Sammendrag av deltagere",
+          "localizedName" : "Sammendrag av deltagere",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Sammendrag av deltagere"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0003]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "hvor_følges_pasienten_opp_videre",
+          "name" : "Hvor følges pasienten opp videre",
+          "localizedName" : "Hvor følges pasienten opp videre",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0007",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Hvor følges pasienten opp videre"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Hvor skal pasienten følges opp videre."
+          },
+          "annotations" : {
+            "comment" : "#AI: Utdra informasjon om hvor pasienten skal følges opp videre etter MDT-møtet, slik det fremkommer i samtalen. Dette kan være en spesifikk avdeling, poliklinikk, fastlege, koordinator eller annet behandlingssted. Dersom det ikke eksplisitt nevnes, skal feltet stå tomt. Ikke endre eller fjern eksisterende verdi med mindre en ny oppfølgingsenhet klart angis."
+          },
+          "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[openEHR-EHR-CLUSTER.mdt_tilleggsinformasjon_dips.v1]/items[at0007]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "kommentar",
+        "name" : "Kommentar",
+        "localizedName" : "Kommentar",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0028",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Kommentar"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Ytterligere fritekst om helsetjenesteaktiviteten eller prosesstrinnet som ikke fanges opp i andre felt."
+        },
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/description[at0001]/items[at0028]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-ACTION.service.v1,'MDT']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "templat-overskrift",
+      "name" : "Templat-overskrift",
+      "localizedName" : "Templat-overskrift",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : -1,
+      "localizedNames" : {
+        "nb" : "Templat-overskrift"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Detaljer om den anbefalte behandlingen man kom fram til i MDT møtet."
+      },
+      "annotations" : {
+        "comment" : "#AI: Denne seksjonen kan forekomme flere ganger dersom pasienten har flere separate behandlingsforløp. Hver forekomst inneholder én hovedbehandling og eventuelle tilhørende tilleggsbehandlinger, med tilhørende intensjon, behandlingssted og fritekstbeskrivelse. Ved identifisering av flere behandlingslinjer i møtet, skal det opprettes én separat gjentakelse for hver. Tilleggsbehandlinger gjelder kun for den hovedbehandlingen de er gruppert sammen med."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]",
+      "children" : [ {
+        "id" : "hoved_primærbehandling",
+        "name" : "Hoved/primærbehandling",
+        "localizedName" : "Hoved/primærbehandling",
+        "rmType" : "INSTRUCTION",
+        "nodeId" : "openEHR-EHR-INSTRUCTION.service_request.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Hoved/primærbehandling"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Detaljer om hoved/primærbehandling og intensjonen med behandlingen."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']",
+        "children" : [ {
+          "id" : "forespørsel",
+          "name" : "Forespørsel",
+          "localizedName" : "Forespørsel",
+          "rmType" : "ACTIVITY",
+          "nodeId" : "at0001",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Forespørsel"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Beskrivelse av tjenesten som forespørres."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]",
+          "children" : [ {
+            "id" : "hovedbehandling",
+            "name" : "Hovedbehandling",
+            "localizedName" : "Hovedbehandling",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0121",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Hovedbehandling"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Navn på hoved/primærbehandlingen som anbefales."
+            },
+            "annotations" : {
+              "comment" : "#AI: Velg hovedbehandling fra tilgjengelige koder basert på det som eksplisitt omtales som anbefalt primærbehandling i MDT-møtet. Det kan være kirurgi, strålebehandling, medikamentell behandling eller observasjon. Bruk kun én kode som best representerer hovedintensjonen. Ikke kombiner flere behandlingsformer – disse skal angis som tillegg dersom aktuelt."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[at0121,'Hovedbehandling']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "128303001",
+                "label" : "Kirurgisk fjerning",
+                "localizedLabels" : {
+                  "nb" : "Kirurgisk fjerning"
+                }
+              }, {
+                "value" : "64597002",
+                "label" : "Ablation",
+                "localizedLabels" : {
+                  "nb" : "Ablation"
+                }
+              }, {
+                "value" : "1287742003",
+                "label" : "Stråleterapi (alle typer)",
+                "localizedLabels" : {
+                  "nb" : "Stråleterapi (alle typer)"
+                }
+              }, {
+                "value" : "1156506007",
+                "label" : "Fotonterapi - Stråle (ekstern)",
+                "localizedLabels" : {
+                  "nb" : "Fotonterapi - Stråle (ekstern)"
+                }
+              }, {
+                "value" : "10611004",
+                "label" : "Protonterapi -Stråle (ekstern)",
+                "localizedLabels" : {
+                  "nb" : "Protonterapi -Stråle (ekstern)"
+                }
+              }, {
+                "value" : "45643008",
+                "label" : "Elektronterapi - Stråle (ekstern)",
+                "localizedLabels" : {
+                  "nb" : "Elektronterapi - Stråle (ekstern)"
+                }
+              }, {
+                "value" : "152198000",
+                "label" : "Brakyterapi - Stråle (intern)",
+                "localizedLabels" : {
+                  "nb" : "Brakyterapi - Stråle (intern)"
+                }
+              }, {
+                "value" : "399315003",
+                "label" : "Radioisotope/systemisk radionuklidebehandling - Stråle (intern)",
+                "localizedLabels" : {
+                  "nb" : "Radioisotope/systemisk radionuklidebehandling - Stråle (intern)"
+                }
+              }, {
+                "value" : "416608005",
+                "label" : "Medikamentell behandling (alle typer)",
+                "localizedLabels" : {
+                  "nb" : "Medikamentell behandling (alle typer)"
+                }
+              }, {
+                "value" : "367336001",
+                "label" : "Kjemoterapi - Medikamentell",
+                "localizedLabels" : {
+                  "nb" : "Kjemoterapi - Medikamentell"
+                }
+              }, {
+                "value" : "347531000202105",
+                "label" : "Målrettet - Medikamentell",
+                "localizedLabels" : {
+                  "nb" : "Målrettet - Medikamentell"
+                }
+              }, {
+                "value" : "76334006",
+                "label" : "Immunterapi - Medikamentell behandling",
+                "localizedLabels" : {
+                  "nb" : "Immunterapi - Medikamentell behandling"
+                }
+              }, {
+                "value" : "169413002",
+                "label" : "Hormonterapi - Medikamentell",
+                "localizedLabels" : {
+                  "nb" : "Hormonterapi - Medikamentell"
+                }
+              }, {
+                "value" : "373818007",
+                "label" : "Ingen kreftbehandling, aktiv oppfølging",
+                "localizedLabels" : {
+                  "nb" : "Ingen kreftbehandling, aktiv oppfølging"
+                }
+              }, {
+                "value" : "438758006",
+                "label" : "Ekspektans (avventende behandling)",
+                "localizedLabels" : {
+                  "nb" : "Ekspektans (avventende behandling)"
+                }
+              }, {
+                "value" : "74964007",
+                "label" : "Annen behandling",
+                "localizedLabels" : {
+                  "nb" : "Annen behandling"
+                }
+              } ],
+              "terminology" : "SNOMED-CT"
+            } ]
+          }, {
+            "id" : "tjenestetype",
+            "name" : "Tjenestetype",
+            "localizedName" : "Tjenestetype",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0148",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Tjenestetype"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Kategorisering av den forespurte tjenesten."
+            },
+            "annotations" : {
+              "comment" : "Koding av tjenestetypen med et kodeverk er ønskelig, dersom tilgjengelig. Dersom \"Tjenestenavn\" er kodet kan dette elementet i noen tilfeller utledes fra koden. For eksempel klinisk biokjemi eller mikrobiologisk laboratorium, ultralyd eller CT."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[at0148]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "C1",
+                "label" : "Kreftbehandling",
+                "localizedLabels" : {
+                  "nb" : "Kreftbehandling"
+                }
+              } ],
+              "terminology" : "no.dips.mdt.treatment.type"
+            } ]
+          }, {
+            "id" : "overordnet_beskrivelse_av_behandling",
+            "name" : "Overordnet beskrivelse av behandling",
+            "localizedName" : "Overordnet beskrivelse av behandling",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0135",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Overordnet beskrivelse av behandling"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Fritekstbeskrivelse av behandlingen som er anbefalt/planlagt."
+            },
+            "annotations" : {
+              "comment" : "#AI: Beskriv den valgte hovedbehandlingen i fritekst med klinisk kontekst. Forklar behandlingsplanen, rekkefølge, hensyn, pasientens ønsker eller medisinske vurderinger som påvirker valg av behandling. Denne teksten utfyller den kodede behandlingen og skal ikke duplisere den. Eksisterende tekst skal beholdes og kan utvides med ny informasjon, men skal ikke endres eller fjernes med mindre det eksplisitt fremgår i møtet."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[at0135,'Overordnet beskrivelse av behandling']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "årsak_for_forespørsel",
+            "name" : "Årsak for forespørsel",
+            "localizedName" : "Årsak for forespørsel",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0062",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Årsak for forespørsel"
+            },
+            "localizedDescriptions" : {
+              "nb" : "En kort beskrivelse av årsaken for forespørselen."
+            },
+            "annotations" : {
+              "comment" : "Koding av forespørselsårsaken med et kodeverk er ønskelig, dersom tilgjengelig. Dette dataelementet tillater flere forekomster, for å gjøre det mulig for brukeren å registrere flere svar om nødvendig. For eksempel \"følge opp diabeteskomplikasjoner\"."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[at0062]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "intensjon_behandling",
+            "name" : "Intensjon behandling",
+            "localizedName" : "Intensjon behandling",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0065",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Intensjon behandling"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Beskrivelse av hvilken intensjon anbefalt/planlagt behandling har."
+            },
+            "annotations" : {
+              "comment" : "#AI: Utdra hvilken intensjon behandlingen har, slik det eksplisitt fremkommer i møtet. Eksempler på intensjon kan være kurativ, livsforlengende eller symptomlindrende. Tillatte verdier er definert i kodelisten til feltet. Ikke fyll inn feltet med mindre intensjonen er klart uttrykt."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[at0065,'Intensjon behandling']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "K1",
+                "label" : "Kurativt",
+                "localizedLabels" : {
+                  "nb" : "Kurativt"
+                }
+              }, {
+                "value" : "K2",
+                "label" : "Aktiv overvåkning",
+                "localizedLabels" : {
+                  "nb" : "Aktiv overvåkning"
+                }
+              }, {
+                "value" : "K3",
+                "label" : "Livsforlengende - ikke kurativ",
+                "localizedLabels" : {
+                  "nb" : "Livsforlengende - ikke kurativ"
+                }
+              }, {
+                "value" : "K4",
+                "label" : "Symptomlindrende - ikke kurativ",
+                "localizedLabels" : {
+                  "nb" : "Symptomlindrende - ikke kurativ"
+                }
+              }, {
+                "value" : "K5",
+                "label" : "Lokal kontroll - ikke kurativ",
+                "localizedLabels" : {
+                  "nb" : "Lokal kontroll - ikke kurativ"
+                }
+              }, {
+                "value" : "K6",
+                "label" : "Ukjent",
+                "localizedLabels" : {
+                  "nb" : "Ukjent"
+                }
+              } ],
+              "terminology" : "no.dips.mdt.treatment.intention"
+            } ]
+          }, {
+            "id" : "organisasjon",
+            "name" : "Organisasjon",
+            "localizedName" : "Organisasjon",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.organisation.v1",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Organisasjon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Navn på institusjon hvor hoved/primærbehandlingen skal foregå."
+            },
+            "annotations" : {
+              "comment" : "For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[openEHR-EHR-CLUSTER.organisation.v1]",
+            "children" : [ {
+              "id" : "behandlingssted",
+              "name" : "Behandlingssted",
+              "localizedName" : "Behandlingssted",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Behandlingssted"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Navn på institusjon hvor hoved/primærbehandlingen skal foregå."
+              },
+              "annotations" : {
+                "comment" : "#AI: Utdra navnet på behandlingsstedet der anbefalt behandling skal gjennomføres, slik det eksplisitt nevnes i møtet. Dette kan være et konkret sykehus, en avdeling, poliklinikk eller institusjon. Ikke fyll ut feltet dersom behandlingssted ikke er angitt eksplisitt. Eksisterende verdi skal ikke endres uten tydelig ny instruksjon."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[openEHR-EHR-CLUSTER.organisation.v1]/items[at0001,'Behandlingssted']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "Egen institusjon",
+                  "label" : "Egen institusjon",
+                  "localizedLabels" : {
+                    "nb" : "Egen institusjon"
+                  }
+                }, {
+                  "value" : "Allmennpraktiker",
+                  "label" : "Allmennpraktiker",
+                  "localizedLabels" : {
+                    "nb" : "Allmennpraktiker"
+                  }
+                }, {
+                  "value" : "Utlandet (spesifiser)",
+                  "label" : "Utlandet (spesifiser)",
+                  "localizedLabels" : {
+                    "nb" : "Utlandet (spesifiser)"
+                  }
+                }, {
+                  "value" : "Annen norsk institusjon/spesialist",
+                  "label" : "Annen norsk institusjon/spesialist",
+                  "localizedLabels" : {
+                    "nb" : "Annen norsk institusjon/spesialist"
+                  }
+                }, {
+                  "value" : "Samarbeid egen institusjon og allmennpraktiker",
+                  "label" : "Samarbeid egen institusjon og allmennpraktiker",
+                  "localizedLabels" : {
+                    "nb" : "Samarbeid egen institusjon og allmennpraktiker"
+                  }
+                }, {
+                  "value" : "Ukjent",
+                  "label" : "Ukjent",
+                  "localizedLabels" : {
+                    "nb" : "Ukjent"
+                  }
+                } ],
+                "terminology" : "no.dips.mdt.treatment.provider"
+              } ]
+            }, {
+              "id" : "kommentar_spesifiser",
+              "name" : "Kommentar, spesifiser",
+              "localizedName" : "Kommentar, spesifiser",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0019",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kommentar, spesifiser"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Ytterligere fritekst om behandlingssted som ikke er registrert i andre felt."
+              },
+              "annotations" : {
+                "comment" : "#AI: Utdra eventuelle tilleggsopplysninger eller spesifikasjoner knyttet til behandlingsstedet, slik som årsak til valg av sted, praktiske forhold, samhandling eller logistikk. Feltet brukes kun dersom slik informasjon nevnes i møtet, og skal ikke benyttes til å gjenta navnet på behandlingsstedet."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/description[at0009]/items[openEHR-EHR-CLUSTER.organisation.v1]/items[at0019,'Kommentar, spesifiser']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "timing",
+            "name" : "Timing",
+            "rmType" : "DV_PARSABLE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/timing",
+            "inputs" : [ {
+              "suffix" : "value",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "formalism",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "action_archetype_id",
+            "name" : "Action_archetype_id",
+            "rmType" : "STRING",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/activities[at0001]/action_archetype_id",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "expiry_time",
+          "name" : "expiry_time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 0,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/expiry_time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "narrative",
+          "name" : "Narrative",
+          "rmType" : "DV_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/narrative",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Hoved/primærbehandling']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "tilleggsbehandling_ift._hovedbehandling",
+        "name" : "Tilleggsbehandling ift. hovedbehandling",
+        "localizedName" : "Tilleggsbehandling ift. hovedbehandling",
+        "rmType" : "INSTRUCTION",
+        "nodeId" : "openEHR-EHR-INSTRUCTION.service_request.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Tilleggsbehandling ift. hovedbehandling"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Detaljer om behandlingsrekkefølge; hvilken rekkefølge kommer annen kreftbehandling i forhold til primærbehandling."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']",
+        "children" : [ {
+          "id" : "forespørsel",
+          "name" : "Forespørsel",
+          "localizedName" : "Forespørsel",
+          "rmType" : "ACTIVITY",
+          "nodeId" : "at0001",
+          "min" : 1,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Forespørsel"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Beskrivelse av tjenesten som forespørres."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]",
+          "children" : [ {
+            "id" : "tillegsbehandling",
+            "name" : "Tillegsbehandling",
+            "localizedName" : "Tillegsbehandling",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0121",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Tillegsbehandling"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Behandlingsrekkefølge samt navn på tilleggsbehandlingen i forhold til hoved/primærbehandlingen."
+            },
+            "annotations" : {
+              "comment" : "#AI: Velg tilleggsbehandling fra tilgjengelige koder basert på det som eksplisitt omtales som tillegg til hovedbehandlingen i MDT-møtet. Dette kan være støttende eller supplerende behandling som medikamentell terapi, strålebehandling eller annen intervensjon."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/description[at0009]/items[at0121,'Tillegsbehandling']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "ST1",
+                "label" : "Neoadjuvant strålebehandling",
+                "localizedLabels" : {
+                  "nb" : "Neoadjuvant strålebehandling"
+                }
+              }, {
+                "value" : "ST2",
+                "label" : "Neoadjuvant medikamentell behandling",
+                "localizedLabels" : {
+                  "nb" : "Neoadjuvant medikamentell behandling"
+                }
+              }, {
+                "value" : "ST3",
+                "label" : "Neoauvant konkomitant stråle og medikamentell behandling (CRT)",
+                "localizedLabels" : {
+                  "nb" : "Neoauvant konkomitant stråle og medikamentell behandling (CRT)"
+                }
+              }, {
+                "value" : "ST4",
+                "label" : "Konkomitant medikamentell behandling",
+                "localizedLabels" : {
+                  "nb" : "Konkomitant medikamentell behandling"
+                }
+              }, {
+                "value" : "ST5",
+                "label" : "Konkomitant stråleterapi (Intraoperativ strålebehandling)",
+                "localizedLabels" : {
+                  "nb" : "Konkomitant stråleterapi (Intraoperativ strålebehandling)"
+                }
+              }, {
+                "value" : "ST7",
+                "label" : "Adjuvant strålebehandling",
+                "localizedLabels" : {
+                  "nb" : "Adjuvant strålebehandling"
+                }
+              }, {
+                "value" : "ST8",
+                "label" : "Adjuvant medikamentell behandling",
+                "localizedLabels" : {
+                  "nb" : "Adjuvant medikamentell behandling"
+                }
+              }, {
+                "value" : "ST9",
+                "label" : "Adjuvant konkomitant stråle og medikamentell behandling (CRT)",
+                "localizedLabels" : {
+                  "nb" : "Adjuvant konkomitant stråle og medikamentell behandling (CRT)"
+                }
+              }, {
+                "value" : "ST10",
+                "label" : "Kirurgisk behandling av restsykdom/-tumor (Salvage kirurgi)",
+                "localizedLabels" : {
+                  "nb" : "Kirurgisk behandling av restsykdom/-tumor (Salvage kirurgi)"
+                }
+              }, {
+                "value" : "ST11",
+                "label" : "Stråling av restsykdom/-tumor (Salvage stråle)",
+                "localizedLabels" : {
+                  "nb" : "Stråling av restsykdom/-tumor (Salvage stråle)"
+                }
+              }, {
+                "value" : "ST13",
+                "label" : "Ingen kreftbehandling, aktiv oppfølging",
+                "localizedLabels" : {
+                  "nb" : "Ingen kreftbehandling, aktiv oppfølging"
+                }
+              }, {
+                "value" : "ST14",
+                "label" : "Ekspektans (avventende behandling)",
+                "localizedLabels" : {
+                  "nb" : "Ekspektans (avventende behandling)"
+                }
+              }, {
+                "value" : "ST15",
+                "label" : "Ferdig behandlet",
+                "localizedLabels" : {
+                  "nb" : "Ferdig behandlet"
+                }
+              }, {
+                "value" : "ST12",
+                "label" : "Annet",
+                "localizedLabels" : {
+                  "nb" : "Annet"
+                }
+              } ],
+              "terminology" : "no.dips.mdt.treatment.secondary"
+            } ]
+          }, {
+            "id" : "tjenestetype",
+            "name" : "Tjenestetype",
+            "localizedName" : "Tjenestetype",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0148",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Tjenestetype"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Kategorisering av den forespurte tjenesten."
+            },
+            "annotations" : {
+              "comment" : "Koding av tjenestetypen med et kodeverk er ønskelig, dersom tilgjengelig. Dersom \"Tjenestenavn\" er kodet kan dette elementet i noen tilfeller utledes fra koden. For eksempel klinisk biokjemi eller mikrobiologisk laboratorium, ultralyd eller CT."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/description[at0009]/items[at0148]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "C1",
+                "label" : "Kreftbehandling",
+                "localizedLabels" : {
+                  "nb" : "Kreftbehandling"
+                }
+              } ],
+              "terminology" : "no.dips.mdt.treatment.type"
+            } ]
+          }, {
+            "id" : "organisasjon",
+            "name" : "Organisasjon",
+            "localizedName" : "Organisasjon",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.organisation.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Organisasjon"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Navn på institusjon hvor tilleggsbehandlingen skal foregå."
+            },
+            "annotations" : {
+              "comment" : "For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/description[at0009]/items[openEHR-EHR-CLUSTER.organisation.v1]",
+            "children" : [ {
+              "id" : "behandlingssted",
+              "name" : "Behandlingssted",
+              "localizedName" : "Behandlingssted",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Behandlingssted"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Navn på institusjon hvor tilleggsbehandlingen skal foregå."
+              },
+              "annotations" : {
+                "comment" : "#AI: Utdra navnet på behandlingsstedet der anbefalt behandling skal gjennomføres, slik det eksplisitt nevnes i møtet. Dette kan være et konkret sykehus, en avdeling, poliklinikk eller institusjon. Ikke fyll ut feltet dersom behandlingssted ikke er angitt eksplisitt. Eksisterende verdi skal ikke endres uten tydelig ny instruksjon."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/description[at0009]/items[openEHR-EHR-CLUSTER.organisation.v1]/items[at0001,'Behandlingssted']/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "Egen institusjon",
+                  "label" : "Egen institusjon",
+                  "localizedLabels" : {
+                    "nb" : "Egen institusjon"
+                  }
+                }, {
+                  "value" : "Allmennpraktiker",
+                  "label" : "Allmennpraktiker",
+                  "localizedLabels" : {
+                    "nb" : "Allmennpraktiker"
+                  }
+                }, {
+                  "value" : "Utlandet (spesifiser)",
+                  "label" : "Utlandet (spesifiser)",
+                  "localizedLabels" : {
+                    "nb" : "Utlandet (spesifiser)"
+                  }
+                }, {
+                  "value" : "Annen norsk institusjon/spesialist",
+                  "label" : "Annen norsk institusjon/spesialist",
+                  "localizedLabels" : {
+                    "nb" : "Annen norsk institusjon/spesialist"
+                  }
+                }, {
+                  "value" : "Samarbeid egen institusjon og allmennpraktiker",
+                  "label" : "Samarbeid egen institusjon og allmennpraktiker",
+                  "localizedLabels" : {
+                    "nb" : "Samarbeid egen institusjon og allmennpraktiker"
+                  }
+                }, {
+                  "value" : "Ukjent",
+                  "label" : "Ukjent",
+                  "localizedLabels" : {
+                    "nb" : "Ukjent"
+                  }
+                } ],
+                "terminology" : "no.dips.OncologyTreatmentLocations"
+              } ]
+            }, {
+              "id" : "kommentar_spesifiser",
+              "name" : "Kommentar, spesifiser",
+              "localizedName" : "Kommentar, spesifiser",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0019",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kommentar, spesifiser"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Ytterligere fritekst om behandlingsstedet som ikke er registrert i andre felt."
+              },
+              "annotations" : {
+                "comment" : "#AI: Utdra eventuelle tilleggsopplysninger eller spesifikasjoner knyttet til behandlingsstedet, slik som årsak til valg av sted, praktiske forhold, samhandling eller logistikk. Feltet brukes kun dersom slik informasjon nevnes i møtet, og skal ikke benyttes til å gjenta navnet på behandlingsstedet."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/description[at0009]/items[openEHR-EHR-CLUSTER.organisation.v1]/items[at0019,'Kommentar, spesifiser']/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "timing",
+            "name" : "Timing",
+            "rmType" : "DV_PARSABLE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/timing",
+            "inputs" : [ {
+              "suffix" : "value",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "formalism",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "action_archetype_id",
+            "name" : "Action_archetype_id",
+            "rmType" : "STRING",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/activities[at0001]/action_archetype_id",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "expiry_time",
+          "name" : "expiry_time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 0,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/expiry_time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "narrative",
+          "name" : "Narrative",
+          "rmType" : "DV_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/narrative",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-INSTRUCTION.service_request.v1,'Tilleggsbehandling ift. hovedbehandling']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "sammendrag_av_mdt_beslutning",
+      "name" : "Sammendrag av MDT beslutning",
+      "localizedName" : "Sammendrag av MDT beslutning",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Sammendrag av MDT beslutning"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Fritekstbeskrivelse av et individs helserelaterte hendelser på et spesifikt tidspunkt, sett fra helsepersonellets synsvinkel."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']",
+      "children" : [ {
+        "id" : "tidsfestet_fritekst",
+        "name" : "Tidsfestet fritekst",
+        "localizedName" : "Tidsfestet fritekst",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0004",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Tidsfestet fritekst"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstbeskrivelse av helserelaterte hendelser, status, funn eller oppfatninger på et spesifikt tidspunkt."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Tidsfestet fritekst']/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/data[at0001]/events[at0002]/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "semistrukturert_metadata_dips",
+        "name" : "Semistrukturert metadata dips",
+        "localizedName" : "Semistrukturert metadata dips",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "tidsfestet_fritekst" ],
+        "localizedNames" : {
+          "nb" : "Semistrukturert metadata dips"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Semistrukturert metadata dips"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/protocol[at0005]/items[openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1]",
+        "children" : [ {
+          "id" : "klassifisering_av_informasjon",
+          "name" : "Klassifisering av informasjon",
+          "localizedName" : "Klassifisering av informasjon",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Klassifisering av informasjon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/protocol[at0005]/items[openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "KortSammendragMDTBehandling",
+              "label" : "Kort sammendrag av MDT behandling",
+              "localizedLabels" : {
+                "nb" : "Kort sammendrag av MDT behandling"
+              }
+            } ],
+            "terminology" : "no.dips.classification.text"
+          } ]
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av MDT beslutning']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "nb" : ""
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

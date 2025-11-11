@@ -1,0 +1,161 @@
+{
+  "templateId" : "utdanningssammendrag",
+  "semVer" : "5.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "nb",
+  "languages" : [ "nb" ],
+  "tree" : {
+    "id" : "utdanningssammendrag",
+    "name" : "Utdanningssammendrag",
+    "localizedName" : "Utdanningssammendrag",
+    "rmType" : "EVALUATION",
+    "nodeId" : "openEHR-EHR-EVALUATION.education_summary.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "nb" : "Utdanningssammendrag"
+    },
+    "localizedDescriptions" : {
+      "nb" : "Sammendrag eller varig (persistent) informasjon om et individs nåværende og tidligere utdanning eller opplæring."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "høyeste_fullførte_utdanningsnivå",
+      "name" : "Høyeste fullførte utdanningsnivå",
+      "localizedName" : "Høyeste fullførte utdanningsnivå",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "at0002",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Høyeste fullførte utdanningsnivå"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Beskrivelse av det høyeste fullførte nivået av utdanning eller opplæring."
+      },
+      "annotations" : {
+        "comment" : "Koding av \"Høyeste fullførte utdanningsnivå\" med en terminologi er anbefalt der det er mulig. For eksempel med NUS 2000 eller Unescos ISCED klassifikasjon. Sistnevnte forefinnes ikke på norsk, men eksempel er \"'Upper secondary vocational education\"; \"Post-secondary non-tertiary vocational education\"; \"Bachelor’s or equivalent level, professional\"; \"Doctoral or equivalent level, academic\"; \"Post-secondary non-tertiary vocational education\"; or \"Never attended an educational program\"."
+      },
+      "aqlPath" : "/data[at0001]/items[at0002]/value",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "0",
+          "label" : "Ingen utdanning",
+          "localizedLabels" : {
+            "nb" : "Ingen utdanning"
+          }
+        }, {
+          "value" : "1",
+          "label" : "Grunnskole",
+          "localizedLabels" : {
+            "nb" : "Grunnskole"
+          }
+        }, {
+          "value" : "2",
+          "label" : "Videregående",
+          "localizedLabels" : {
+            "nb" : "Videregående"
+          }
+        }, {
+          "value" : "3",
+          "label" : "Universitet/Høyskole <4 år",
+          "localizedLabels" : {
+            "nb" : "Universitet/Høyskole <4 år"
+          }
+        }, {
+          "value" : "4",
+          "label" : "Universitet/Høyskole ≥4 år",
+          "localizedLabels" : {
+            "nb" : "Universitet/Høyskole ≥4 år"
+          }
+        }, {
+          "value" : "9",
+          "label" : "Ukjent",
+          "localizedLabels" : {
+            "nb" : "Ukjent"
+          }
+        } ],
+        "terminology" : "no.utdanningsnivaa"
+      } ]
+    }, {
+      "id" : "kommentar",
+      "name" : "Kommentar",
+      "localizedName" : "Kommentar",
+      "rmType" : "DV_TEXT",
+      "nodeId" : "at0007",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Kommentar"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Ytterligere fritekst om utdanningssammendraget som ikke er fanget opp i andre felt."
+      },
+      "aqlPath" : "/data[at0001]/items[at0007]/value",
+      "inputs" : [ {
+        "type" : "TEXT"
+      } ]
+    }, {
+      "id" : "sist_oppdatert",
+      "name" : "Sist oppdatert",
+      "localizedName" : "Sist oppdatert",
+      "rmType" : "DV_DATE_TIME",
+      "nodeId" : "at0028",
+      "min" : 0,
+      "max" : 1,
+      "dependsOn" : [ "høyeste_fullførte_utdanningsnivå", "kommentar" ],
+      "localizedNames" : {
+        "nb" : "Sist oppdatert"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Datoen da dette sammendraget om utdanning sist ble oppdatert."
+      },
+      "annotations" : {
+        "comment" : "Ved implementering av arketypen forutsettes det at dersom en utdanning eller opplæring legges til eller oppdateres i CLUSTER.education_record (Utdanning), vil også denne datoen oppdateres."
+      },
+      "aqlPath" : "/protocol[at0026]/items[at0028]/value",
+      "inputs" : [ {
+        "type" : "DATETIME"
+      } ]
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "encoding",
+      "name" : "Encoding",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/encoding",
+      "inContext" : true
+    }, {
+      "id" : "subject",
+      "name" : "Subject",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/subject",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

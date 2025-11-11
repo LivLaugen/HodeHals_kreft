@@ -1,0 +1,4331 @@
+{
+  "templateId" : "Arena-Cancer-HeadAndNeck-Reception-Journal_v45",
+  "semVer" : "95.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "nb",
+  "languages" : [ "nb" ],
+  "tree" : {
+    "id" : "klinisk_kontakt",
+    "name" : "Klinisk kontakt",
+    "localizedName" : "Klinisk kontakt",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "nb" : "Klinisk kontakt"
+    },
+    "localizedDescriptions" : {
+      "nb" : "Interaksjon, kontakt eller omsorgshendelse mellom et individ og helsepersonell."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "template_versjonsinformasjon",
+        "name" : "Template versjonsinformasjon",
+        "localizedName" : "Template versjonsinformasjon",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.template_semver_dips.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Template versjonsinformasjon"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Informasjon om templatens semantiske versjonering"
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]",
+        "children" : [ {
+          "id" : "navn",
+          "name" : "Navn",
+          "localizedName" : "Navn",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Navn"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*The name/title of the composition. Used to group information. (nb)"
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Admission01",
+              "label" : "Oncology-Reception-Journal",
+              "localizedLabels" : {
+                "nb" : "Oncology-Reception-Journal"
+              }
+            } ],
+            "terminology" : "no.dips.Oncology.HeadNeck.ReceptionJournal"
+          } ]
+        }, {
+          "id" : "semver",
+          "name" : "Semver",
+          "localizedName" : "Semver",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Semver"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Semantisk versjonering av templaten. "
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]",
+          "children" : [ {
+            "id" : "major",
+            "name" : "Major",
+            "localizedName" : "Major",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Major"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Markerer brytende endringer i templaten"
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0004]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              },
+              "defaultValue" : 1
+            } ]
+          }, {
+            "id" : "minor",
+            "name" : "Minor",
+            "localizedName" : "Minor",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0005",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Minor"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Markerer endret funksjonalitet som er lagt til på en bakoverkompatibel måte "
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0005]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              },
+              "defaultValue" : 0
+            } ]
+          }, {
+            "id" : "patch",
+            "name" : "Patch",
+            "localizedName" : "Patch",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Patch"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Små endringer i form av feilrettinger, endringer av skrivefeil, etc. "
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0006]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              },
+              "defaultValue" : 0
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "aktuelt",
+      "name" : "Aktuelt",
+      "localizedName" : "Aktuelt",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Aktuelt"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Aktuelt til en pasient."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']",
+      "children" : [ {
+        "id" : "anamnese",
+        "name" : "Anamnese",
+        "localizedName" : "Anamnese",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Anamnese"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Et individs sykehistorie/anamnese, som fortalt til kliniker eller dokumentert direkte av individet."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']",
+        "children" : [ {
+          "id" : "aktuelt_anamnese",
+          "name" : "Aktuelt/Anamnese",
+          "localizedName" : "Aktuelt/Anamnese",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.story.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Aktuelt/Anamnese"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Et individs sykehistorie/anamnese, som fortalt til kliniker eller dokumentert direkte av individet."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']",
+          "children" : [ {
+            "id" : "anamnese",
+            "name" : "Anamnese",
+            "localizedName" : "Anamnese",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Anamnese"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Narrativ beskrivelse av sykehistorie/anamnese for et individ."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/data[at0001]/events[at0002,'Problemstilling']/data[at0003]/items[at0004]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/data[at0001]/events[at0002,'Problemstilling']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "reception_note_metadata_dips",
+            "name" : "Reception note metadata dips",
+            "localizedName" : "Reception note metadata dips",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1",
+            "min" : 0,
+            "max" : -1,
+            "dependsOn" : [ "anamnese" ],
+            "localizedNames" : {
+              "nb" : "Reception note metadata dips"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/protocol[at0007]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]",
+            "children" : [ {
+              "id" : "datakategori",
+              "name" : "Datakategori",
+              "localizedName" : "Datakategori",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : -1,
+              "localizedNames" : {
+                "nb" : "Datakategori"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/protocol[at0007]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "at0005",
+                  "label" : "Aktuelt",
+                  "localizedLabels" : {
+                    "nb" : "Aktuelt"
+                  },
+                  "localizedDescriptions" : {
+                    "nb" : "*"
+                  }
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Anamnese']/items[openEHR-EHR-OBSERVATION.story.v1,'Aktuelt/Anamnese']/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      }, {
+        "id" : "kontaktårsak_debuterende_symptom",
+        "name" : "Kontaktårsak/debuterende symptom",
+        "localizedName" : "Kontaktårsak/debuterende symptom",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Kontaktårsak/debuterende symptom"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Kontaktårsak og det første symptomet hos pasienten."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']",
+        "children" : [ {
+          "id" : "kartleggingsspørsmål_om_symptomer_sykdomstegn_-_første_sympt",
+          "name" : "Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt",
+          "localizedName" : "Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Spørsmål og tilhørende svar som brukes til å kartlegge symptomer eller sykdomstegn."
+          },
+          "annotations" : {
+            "comment" : "Svarene kan være selvrapporterte."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']",
+          "children" : [ {
+            "id" : "kartleggingsformål",
+            "name" : "Kartleggingsformål",
+            "localizedName" : "Kartleggingsformål",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0034",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Kartleggingsformål"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Konteksten eller årsaken for kartleggingen."
+            },
+            "annotations" : {
+              "comment" : "Dette dataelementet er ment for å sette en kontekst for spørsmålene om man senere ønsker å gjøre spørringer på dataene. Det er ikke forventet at dette dataelementet skal være synlig for en bruker av skjemaet, men kun tilgjengelig i de lagrede dataene. \r\nFor eksempel: \"Pre operativ screening\" eller navnet på det faktiske spørreskjemaet."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0034]/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "list" : [ {
+                "value" : "hode- og halskreft",
+                "label" : "hode- og halskreft"
+              } ],
+              "listOpen" : false,
+              "defaultValue" : "hode- og halskreft"
+            } ]
+          }, {
+            "id" : "første_presenterende_symptom_funn",
+            "name" : "Første presenterende symptom/funn",
+            "localizedName" : "Første presenterende symptom/funn",
+            "rmType" : "CLUSTER",
+            "nodeId" : "at0022",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Første presenterende symptom/funn"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Detaljer om det første symptomet pasienten hadde."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']",
+            "children" : [ {
+              "id" : "første_presenterende_symptom_funn",
+              "name" : "Første presenterende symptom/funn",
+              "localizedName" : "Første presenterende symptom/funn",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Første presenterende symptom/funn"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Navnet på det første sykdomstegnet eller symptomet."
+              },
+              "annotations" : {
+                "comment" : "Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']/items[at0004,'Første presenterende symptom/funn']/value",
+              "inputs" : [ {
+                "type" : "TEXT",
+                "list" : [ {
+                  "value" : "Smerte",
+                  "label" : "Smerte"
+                }, {
+                  "value" : "Kul på halsen",
+                  "label" : "Kul på halsen"
+                }, {
+                  "value" : "Nerveutfall",
+                  "label" : "Nerveutfall"
+                }, {
+                  "value" : "Vekttap",
+                  "label" : "Vekttap"
+                }, {
+                  "value" : "Heshet/stridor",
+                  "label" : "Heshet/stridor"
+                }, {
+                  "value" : "Incidental radiologi",
+                  "label" : "Incidental radiologi"
+                }, {
+                  "value" : "Nesetetthet",
+                  "label" : "Nesetetthet"
+                }, {
+                  "value" : "Annet",
+                  "label" : "Annet"
+                } ],
+                "listOpen" : false
+              } ]
+            }, {
+              "id" : "tidsangivelse",
+              "name" : "Tidsangivelse",
+              "localizedName" : "Tidsangivelse",
+              "rmType" : "DV_DATE_TIME",
+              "nodeId" : "at0037",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Tidsangivelse"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Tidsangivelse for symptomet eller sykdomstegnet."
+              },
+              "annotations" : {
+                "comment" : "Dataelementet \"Tidsangivelse\" er med hensikt løst modellert for å støtte ulike måter å angi tidsangivelser for symptomet eller sykdomstegnet i et spørreskjema. Den konkrete semantikken defineres i templatet. For eksempel: Symptomet eller sykdomstegnet faktiske dato og/eller klokkeslett, start- og sluttid for symptomet eller sykdomstegnet, et tidsintervall for når for symptomet eller sykdomstegnet oppstod, varigheten for symptomet eller sykdomstegnet, individets alder på tidspunktet symptomet eller sykdomstegnet oppstod, eller hvor lenge det siden det oppstod. Kan være en deldato, for eksempel bare år, ved å bruke datatypen DV_DATE_TIME."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']/items[at0037]/value",
+              "inputs" : [ {
+                "type" : "DATETIME"
+              } ]
+            }, {
+              "id" : "symptom_sykdomstegn",
+              "name" : "Symptom/Sykdomstegn",
+              "localizedName" : "Symptom/Sykdomstegn",
+              "rmType" : "CLUSTER",
+              "nodeId" : "openEHR-EHR-CLUSTER.symptom_sign.v1",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Symptom/Sykdomstegn"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Rapportert observasjon av fysiske tegn eller beskrivelse av unormale eller ubehagelige fornemmelser i kropp og/eller sinn."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']/items[openEHR-EHR-CLUSTER.symptom_sign.v1]",
+              "children" : [ {
+                "id" : "vekttap",
+                "name" : "Vekttap",
+                "localizedName" : "Vekttap",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0001",
+                "min" : 1,
+                "max" : 1,
+                "localizedNames" : {
+                  "nb" : "Vekttap"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Navnet på det rapporterte symptomet eller sykdomstegnet."
+                },
+                "annotations" : {
+                  "comment" : "Navnet på symptom/sykdomstegn bør kodes med en terminologi om mulig."
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']/items[openEHR-EHR-CLUSTER.symptom_sign.v1]/items[at0001,'Vekttap']/value",
+                "inputs" : [ {
+                  "type" : "TEXT",
+                  "list" : [ {
+                    "value" : "Vekttap",
+                    "label" : "Vekttap"
+                  } ],
+                  "listOpen" : false
+                } ],
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::418799008]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              }, {
+                "id" : "ev_vekttap_kg_tid",
+                "name" : "Ev vekttap kg/tid",
+                "localizedName" : "Ev vekttap kg/tid",
+                "rmType" : "DV_TEXT",
+                "nodeId" : "at0002",
+                "min" : 0,
+                "max" : 1,
+                "localizedNames" : {
+                  "nb" : "Ev vekttap kg/tid"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Fritekst om kg vekttapet over tid."
+                },
+                "annotations" : {
+                  "comment" : "Eksempel: \"Svimmelhet med rotasjonsfølelse og av og til besvimelsesfølelse. Hurtig bevegelse fra sittende eller liggende til stående stilling virker å være en utløsende faktor. Opptrer typisk flere ganger daglig, og varer i ca et halvt til ett minutt hver gang. Å sette eller legge seg ned virker lindrende.\""
+                },
+                "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']/items[openEHR-EHR-CLUSTER.symptom_sign.v1]/items[at0002,'Ev vekttap kg/tid']/value",
+                "inputs" : [ {
+                  "type" : "TEXT"
+                } ],
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::162408000]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              } ]
+            }, {
+              "id" : "kommentar",
+              "name" : "Kommentar",
+              "localizedName" : "Kommentar",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0035",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kommentar"
+              },
+              "localizedDescriptions" : {
+                "nb" : " fritekst om det spesifikke symptom- eller sykdomstegnspørsmålet som ikke er omfattet av andre felt."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/data[at0003]/items[at0022,'Første presenterende symptom/funn']/items[at0035]/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/data[at0001]/events[at0002]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Aktuelt']/items[openEHR-EHR-SECTION.adhoc.v1,'Kontaktårsak/debuterende symptom']/items[openEHR-EHR-OBSERVATION.symptom_sign_screening.v1,'Kartleggingsspørsmål om symptomer/sykdomstegn - første sympt']/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      } ]
+    }, {
+      "id" : "naturlige_funksjoner",
+      "name" : "Naturlige funksjoner",
+      "localizedName" : "Naturlige funksjoner",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Naturlige funksjoner"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Fritekstbeskrivelse om naturlige funksjoner til en pasient."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']",
+      "children" : [ {
+        "id" : "naturlige_funksjoner",
+        "name" : "Naturlige funksjoner",
+        "localizedName" : "Naturlige funksjoner",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Naturlige funksjoner"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstbeskrivelse om naturlige funksjoner til en pasient."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']",
+        "children" : [ {
+          "id" : "naturlige_funksjoner",
+          "name" : "Naturlige funksjoner",
+          "localizedName" : "Naturlige funksjoner",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Naturlige funksjoner"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstbeskrivelse av naturlige funksjoner til pasienten."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Naturlige funksjoner']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "reception_note_metadata_dips",
+          "name" : "Reception note metadata dips",
+          "localizedName" : "Reception note metadata dips",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1",
+          "min" : 0,
+          "max" : -1,
+          "dependsOn" : [ "naturlige_funksjoner" ],
+          "localizedNames" : {
+            "nb" : "Reception note metadata dips"
+          },
+          "localizedDescriptions" : {
+            "nb" : "unknown"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]",
+          "children" : [ {
+            "id" : "datakategori",
+            "name" : "Datakategori",
+            "localizedName" : "Datakategori",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Datakategori"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0006",
+                "label" : "Naturlige funksjoner",
+                "localizedLabels" : {
+                  "nb" : "Naturlige funksjoner"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Naturlige funksjoner']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Naturlige funksjoner']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "medikamenter_husk_legemiddelsamstemming_medikamenter_skal_oppdateres_i_kurve",
+      "name" : "Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)",
+      "localizedName" : "Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Fritekstbeskrivelse om bruken av legemidler ved innkomst.\nHusk samstemming av legemidler.\nMedikamenter skal oppdateres i kurve."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']",
+      "children" : [ {
+        "id" : "kartleggingsspørsmål_om_legemidler",
+        "name" : "Kartleggingsspørsmål om legemidler",
+        "localizedName" : "Kartleggingsspørsmål om legemidler",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.medication_screening.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Kartleggingsspørsmål om legemidler"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Spørsmål og tilhørende svar som brukes til å kartlegge bruken av legemidler."
+        },
+        "annotations" : {
+          "comment" : "Svarene kan være selvrapporterte."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]",
+        "children" : [ {
+          "id" : "uspesifisert_hendelse",
+          "name" : "Uspesifisert hendelse",
+          "localizedName" : "Uspesifisert hendelse",
+          "rmType" : "POINT_EVENT",
+          "nodeId" : "at0023",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Uspesifisert hendelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/data[at0022]/events[at0023]",
+          "children" : [ {
+            "id" : "kartleggingsformål",
+            "name" : "Kartleggingsformål",
+            "localizedName" : "Kartleggingsformål",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0040",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Kartleggingsformål"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Konteksten eller årsaken for kartleggingen."
+            },
+            "annotations" : {
+              "comment" : "Dette dataelementet er ment for å sette en kontekst for spørsmålene om man senere ønsker å gjøre spørringer på dataene. Det er ikke forventet at dette dataelementet skal være synlig for en bruker av skjemaet, men kun tilgjengelig i de lagrede dataene. \r\nFor eksempel: \"Preoperativ screening\" eller navnet på det faktiske spørreskjemaet eller screening for tidligere bruk av en legemiddelklasse, som bisfosfonater."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/data[at0022]/events[at0023]/data[at0001]/items[at0040]/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "list" : [ {
+                "value" : "hode- og halskreft",
+                "label" : "hode- og halskreft"
+              } ],
+              "listOpen" : false,
+              "defaultValue" : "hode- og halskreft"
+            } ]
+          }, {
+            "id" : "beskrivelse_av_medikamenter_ved_innkomst",
+            "name" : "Beskrivelse av medikamenter ved innkomst",
+            "localizedName" : "Beskrivelse av medikamenter ved innkomst",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0043",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Beskrivelse av medikamenter ved innkomst"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Fritekstbeskrivelse om bruken av legemidler ved innkomst.\nHusk samstemming av legemidler. \nMedikamenter skal oppdateres i kurve.\n\n"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/data[at0022]/events[at0023]/data[at0001]/items[at0043,'Beskrivelse av medikamenter ved innkomst']/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/data[at0022]/events[at0023]/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Medikamenter (husk legemiddelsamstemming, medikamenter skal oppdateres i kurve)']/items[openEHR-EHR-OBSERVATION.medication_screening.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "kartlegging_om_allergi_cave_-_føres_inn_i_kritisk_info",
+      "name" : "Kartlegging om allergi/cave - føres inn i kritisk info",
+      "localizedName" : "Kartlegging om allergi/cave - føres inn i kritisk info",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.problem_screening.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Kartlegging om allergi/cave - føres inn i kritisk info"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Spørsmål og tilhørende svar som brukes til å kartlegge bekymringer, plager, problemer eller diagnoser."
+      },
+      "annotations" : {
+        "comment" : "Svarene kan være selvrapporterte."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']",
+      "children" : [ {
+        "id" : "uspesifisert_hendelse",
+        "name" : "Uspesifisert hendelse",
+        "localizedName" : "Uspesifisert hendelse",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "nb" : "Uspesifisert hendelse"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "kartleggingsformål",
+          "name" : "Kartleggingsformål",
+          "localizedName" : "Kartleggingsformål",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0034",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kartleggingsformål"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Konteksten eller årsaken for kartleggingen."
+          },
+          "annotations" : {
+            "comment" : "Dette dataelementet er ment for å sette en kontekst for spørsmålene, dersom man senere ønsker å gjøre spørringer på dataene. Det er ikke forventet at dette dataelementet skal være synlig for en bruker av skjemaet, men kun tilgjengelig i de lagrede dataene. For eksempel: \"Preoperativ screening\" eller navnet på det faktiske spørreskjemaet."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/data[at0001]/events[at0002]/data[at0003]/items[at0034]/value",
+          "inputs" : [ {
+            "type" : "TEXT",
+            "list" : [ {
+              "value" : "hode- og halskreft",
+              "label" : "hode- og halskreft"
+            } ],
+            "listOpen" : false
+          } ]
+        }, {
+          "id" : "har_pasienten_noen_kjente_allergier",
+          "name" : "Har pasienten noen kjente allergier?",
+          "localizedName" : "Har pasienten noen kjente allergier?",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Har pasienten noen kjente allergier?"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Finnes det noen bekymringer, plager, problemer eller diagnoser. som er innenfor kartleggingsformålet?"
+          },
+          "annotations" : {
+            "comment" : "Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Har pasienten noen kjente allergier?']/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0031",
+              "label" : "Ja",
+              "localizedLabels" : {
+                "nb" : "Ja"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::373066001]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "value" : "at0032",
+              "label" : "Nei",
+              "localizedLabels" : {
+                "nb" : "Nei"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::373067005]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "value" : "at0033",
+              "label" : "Ukjent",
+              "localizedLabels" : {
+                "nb" : "Ukjent"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::261665006]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "det_er_registrert_i_kritisk_info_til_pasienten.",
+          "name" : "Det er registrert i kritisk info til pasienten.",
+          "localizedName" : "Det er registrert i kritisk info til pasienten.",
+          "rmType" : "DV_BOOLEAN",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Det er registrert i kritisk info til pasienten."
+          },
+          "localizedDescriptions" : {
+            "nb" : "Finnes det noen bekymringer, plager, problemer eller diagnoser. som er innenfor kartleggingsformålet?"
+          },
+          "annotations" : {
+            "comment" : "Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/data[at0001]/events[at0002]/data[at0003]/items[at0028,'Det er registrert i kritisk info til pasienten.']/value",
+          "inputs" : [ {
+            "type" : "BOOLEAN"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.problem_screening.v1,'Kartlegging om allergi/cave - føres inn i kritisk info']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "funksjonsstatus",
+      "name" : "Funksjonsstatus",
+      "localizedName" : "Funksjonsstatus",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Funksjonsstatus"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Funksjonsstatus til en pasient."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']",
+      "children" : [ {
+        "id" : "ecog_funksjonsstatus",
+        "name" : "ECOG funksjonsstatus",
+        "localizedName" : "ECOG funksjonsstatus",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.ecog.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "ECOG funksjonsstatus"
+        },
+        "localizedDescriptions" : {
+          "nb" : "En skala benyttet av klinikere for å vurdere funksjonsstatus hos en pasient med kreft. Også kjent som WHO performance status eller Zubrod perfomance status."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']/items[openEHR-EHR-OBSERVATION.ecog.v1]",
+        "children" : [ {
+          "id" : "ecog_funksjonsstatus",
+          "name" : "ECOG funksjonsstatus",
+          "localizedName" : "ECOG funksjonsstatus",
+          "rmType" : "DV_ORDINAL",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "ECOG funksjonsstatus"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Funksjonsstatus hos en pasient med kreft."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']/items[openEHR-EHR-OBSERVATION.ecog.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "inputs" : [ {
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0005",
+              "label" : "Asymptomatisk",
+              "localizedLabels" : {
+                "nb" : "Asymptomatisk"
+              },
+              "localizedDescriptions" : {
+                "nb" : "I stand til å utføre enhver normal aktivitet uten begrensning."
+              },
+              "ordinal" : 0
+            }, {
+              "value" : "at0006",
+              "label" : "Symptomatisk, fullt oppegående",
+              "localizedLabels" : {
+                "nb" : "Symptomatisk, fullt oppegående"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Ikke i stand til fysisk krevende aktivitet, men oppegående og i stand til å utføre lett arbeid."
+              },
+              "ordinal" : 1
+            }, {
+              "value" : "at0007",
+              "label" : "Symptomatisk, sengeliggende <50 % av våken tid",
+              "localizedLabels" : {
+                "nb" : "Symptomatisk, sengeliggende <50 % av våken tid"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Oppegående og i stand til all egenpleie, men ikke i stand til noe arbeid; oppe og i bevegelse mer enn 50% av våken tid."
+              },
+              "ordinal" : 2
+            }, {
+              "value" : "at0008",
+              "label" : "Symptomatisk, sengeliggende > 50 % av våken tid",
+              "localizedLabels" : {
+                "nb" : "Symptomatisk, sengeliggende > 50 % av våken tid"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Bare i stand til begrenset egenpleie, bundet til seng eller stol > 50 % av våken tid."
+              },
+              "ordinal" : 3
+            }, {
+              "value" : "at0009",
+              "label" : "Helt sengeliggende",
+              "localizedLabels" : {
+                "nb" : "Helt sengeliggende"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Helt hjelpetrengende; klarer ikke noen egenpleie; helt bundet til seng eller stol."
+              },
+              "ordinal" : 4
+            }, {
+              "value" : "at0010",
+              "label" : "Død",
+              "localizedLabels" : {
+                "nb" : "Død"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Pasienten er død."
+              },
+              "ordinal" : 5
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']/items[openEHR-EHR-OBSERVATION.ecog.v1]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']/items[openEHR-EHR-OBSERVATION.ecog.v1]/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']/items[openEHR-EHR-OBSERVATION.ecog.v1]/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Funksjonsstatus']/items[openEHR-EHR-OBSERVATION.ecog.v1]/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "status_presens",
+      "name" : "Status presens",
+      "localizedName" : "Status presens",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Status presens"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Status presens på pasienten."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']",
+      "children" : [ {
+        "id" : "vitale_målinger",
+        "name" : "Vitale målinger",
+        "localizedName" : "Vitale målinger",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Vitale målinger"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Vitale målinger til en pasient."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']",
+        "children" : [ {
+          "id" : "høyde_lengde",
+          "name" : "Høyde/Lengde",
+          "localizedName" : "Høyde/Lengde",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.height.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Høyde/Lengde"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Individets høyde eller lengde målt fra isse til fotsåle."
+          },
+          "annotations" : {
+            "comment" : "Høyde måles stående og lengde liggende."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.height.v2]",
+          "children" : [ {
+            "id" : "høyde_cm",
+            "name" : "Høyde (cm)",
+            "localizedName" : "Høyde (cm)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Høyde (cm)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Høyde/lengde fra isse til fotsåle."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.height.v2]/data[at0001]/events[at0002,'Innkomst']/data[at0003]/items[at0004,'Høyde (cm)']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 1000.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "cm",
+                "label" : "cm",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  }
+                }
+              } ]
+            } ],
+            "termBindings" : {
+              "LOINC" : {
+                "value" : "[LOINC::8302-2]",
+                "terminologyId" : "LOINC"
+              }
+            }
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.height.v2]/data[at0001]/events[at0002,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.height.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.height.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.height.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "kroppsvekt",
+          "name" : "Kroppsvekt",
+          "localizedName" : "Kroppsvekt",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.body_weight.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kroppsvekt"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Individets kroppsvekt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_weight.v2]",
+          "children" : [ {
+            "id" : "vekt_kg",
+            "name" : "Vekt (kg)",
+            "localizedName" : "Vekt (kg)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Vekt (kg)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Et individs totale kroppsmasse."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/data[at0002]/events[at0003,'Innkomst']/data[at0001]/items[at0004,'Vekt (kg)']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 1000.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "kg",
+                "label" : "kg",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  }
+                }
+              } ]
+            } ],
+            "termBindings" : {
+              "LOINC" : {
+                "value" : "[LOINC::29463-7]",
+                "terminologyId" : "LOINC"
+              }
+            }
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/data[at0002]/events[at0003,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "kroppstemperatur",
+          "name" : "Kroppstemperatur",
+          "localizedName" : "Kroppstemperatur",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.body_temperature.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kroppstemperatur"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Måling av kroppstemperatur som skal gjenspeile et individs kjernetemperatur."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]",
+          "children" : [ {
+            "id" : "temperatur_c",
+            "name" : "Temperatur (°C)",
+            "localizedName" : "Temperatur (°C)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Temperatur (°C)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Den målte temperaturen."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003,'Innkomst']/data[at0001]/items[at0004,'Temperatur (°C)']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<",
+                  "max" : 100.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "Cel",
+                "label" : "Cel",
+                "localizedLabels" : {
+                  "nb" : "°C"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<",
+                    "max" : 100.0
+                  }
+                }
+              } ]
+            } ],
+            "termBindings" : {
+              "LNC205" : {
+                "value" : "[LNC205::8310-5]",
+                "terminologyId" : "LNC205"
+              },
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT::386725007]",
+                "terminologyId" : "SNOMED-CT"
+              }
+            }
+          }, {
+            "id" : "konfunderende_faktorer",
+            "name" : "Konfunderende faktorer",
+            "localizedName" : "Konfunderende faktorer",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0066",
+            "min" : 0,
+            "max" : -1,
+            "dependsOn" : [ "temperatur_c" ],
+            "localizedNames" : {
+              "nb" : "Konfunderende faktorer"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Ytterligere problemstillinger eller faktorer som kan påvirke målingen av kroppstemperaturen og som ikke er dekket i andre felt."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003,'Innkomst']/state[at0029]/items[at0066]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_temperature.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "pulsoksymetri",
+          "name" : "Pulsoksymetri",
+          "localizedName" : "Pulsoksymetri",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.pulse_oximetry.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Pulsoksymetri"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Blodoksygen og beslektede målinger, målt ved pulsoksymetri eller puls-CO-oksymetri."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]",
+          "children" : [ {
+            "id" : "oksygenmetning",
+            "name" : "Oksygenmetning (%)",
+            "localizedName" : "Oksygenmetning (%)",
+            "rmType" : "DV_PROPORTION",
+            "nodeId" : "at0006",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Oksygenmetning (%)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Oksygenmetning i perifert blod, målt via pulsoksymetri."
+            },
+            "annotations" : {
+              "comment" : "SpO₂ er definert som forholdet mellom oksyhemoglobin (HbO₂) og den totale konsentrasjonen av hemoglobin (HbO₂ + deoksyhemoglobin) i perifert blod."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/data[at0001]/events[at0002,'Innkomst']/data[at0003]/items[at0006,'Oksygenmetning (%)']/value",
+            "proportionTypes" : [ "percent" ],
+            "inputs" : [ {
+              "suffix" : "numerator",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 100.0
+                }
+              },
+              "defaultValue" : 0.0
+            }, {
+              "suffix" : "denominator",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 100.0,
+                  "maxOp" : "<=",
+                  "max" : 100.0
+                }
+              }
+            } ],
+            "termBindings" : {
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT::431314004]",
+                "terminologyId" : "SNOMED-CT"
+              },
+              "LOINC" : {
+                "value" : "[LOINC::59408-5]",
+                "terminologyId" : "LOINC"
+              }
+            }
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/data[at0001]/events[at0002,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "åndedrett",
+          "name" : "Åndedrett",
+          "localizedName" : "Åndedrett",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.respiration.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Åndedrett"
+          },
+          "localizedDescriptions" : {
+            "nb" : "De observerte karakteristika ved spontant åndedrett til et individ."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.respiration.v2]",
+          "children" : [ {
+            "id" : "respirasjonsfrekvens_min",
+            "name" : "Respirasjonsfrekvens (/min)",
+            "localizedName" : "Respirasjonsfrekvens (/min)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Respirasjonsfrekvens (/min)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Åndedrettsfrekvensen målt som åndedrag per minutt."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.respiration.v2]/data[at0001]/events[at0002,'Innkomst']/data[at0003]/items[at0004,'Respirasjonsfrekvens (/min)']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<=",
+                  "max" : 200.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "/min",
+                "label" : "/min",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 200.0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.respiration.v2]/data[at0001]/events[at0002,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.respiration.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.respiration.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.respiration.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "blodtrykk",
+          "name" : "Blodtrykk",
+          "localizedName" : "Blodtrykk",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.blood_pressure.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Blodtrykk"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Måling av blodtrykket som uttrykk for det arterielle blodtrykk i det systemiske kretsløp."
+          },
+          "annotations" : {
+            "comment" : "Vanligvis brukes begrepet \"blodtrykk\" om måling av brakialt arterietrykk i overarmen."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]",
+          "children" : [ {
+            "id" : "systolisk_blodtrykk",
+            "name" : "Systolisk blodtrykk",
+            "localizedName" : "Systolisk blodtrykk",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Systolisk blodtrykk"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Maksimalt systemisk arterielt blodtrykk - målt i systolen, det vil si i hjertets kontraksjonsfase."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'Innkomst']/data[at0003]/items[at0004,'Systolisk blodtrykk']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<",
+                  "max" : 1000.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "mm[Hg]",
+                "label" : "mm[Hg]",
+                "localizedLabels" : {
+                  "nb" : "mmHg"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<",
+                    "max" : 1000.0
+                  }
+                }
+              } ]
+            } ],
+            "termBindings" : {
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT(2003)::271649006]",
+                "terminologyId" : "SNOMED-CT"
+              }
+            }
+          }, {
+            "id" : "diastolisk_blodtrykk",
+            "name" : "Diastolisk blodtrykk",
+            "localizedName" : "Diastolisk blodtrykk",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0005",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Diastolisk blodtrykk"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Laveste systemiske arterielle blodtrykk - målt i diastolen, det vil si under hjertets relaksasjonsfase."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'Innkomst']/data[at0003]/items[at0005,'Diastolisk blodtrykk']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<",
+                  "max" : 1000.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "mm[Hg]",
+                "label" : "mm[Hg]",
+                "localizedLabels" : {
+                  "nb" : "mmHg"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<",
+                    "max" : 1000.0
+                  }
+                }
+              } ]
+            } ],
+            "termBindings" : {
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT(2003)::271650006]",
+                "terminologyId" : "SNOMED-CT"
+              }
+            }
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ],
+          "termBindings" : {
+            "SNOMED-CT" : {
+              "value" : "[SNOMED-CT(2003)::364090009]",
+              "terminologyId" : "SNOMED-CT"
+            }
+          }
+        }, {
+          "id" : "puls_hjertefrekvens",
+          "name" : "Puls/Hjertefrekvens",
+          "localizedName" : "Puls/Hjertefrekvens",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.pulse.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Puls/Hjertefrekvens"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Måling av puls/hjertefrekvens, eller eksplisitt puls eller hjertefrekvens, og beskrivelse av tilhørende egenskaper."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse.v2]",
+          "children" : [ {
+            "id" : "hjertefrekvens_min",
+            "name" : "Hjertefrekvens (/min)",
+            "localizedName" : "Hjertefrekvens (/min)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Hjertefrekvens (/min)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Puls- eller hjertefrekvens, målt i støt/slag per minutt."
+            },
+            "annotations" : {
+              "comment" : "Det er spesifisert begrensninger i navn for å gjøre det lettere å eksplisitt merke dette elementet som Pulsfrekvens eller Hjertefrekvens ved behov."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse.v2]/data[at0002]/events[at0003,'Innkomst']/data[at0001]/items[at0004,'Hjertefrekvens (/min)']/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<",
+                  "max" : 1000.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "/min",
+                "label" : "/min",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<",
+                    "max" : 1000.0
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse.v2]/data[at0002]/events[at0003,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.pulse.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "kroppsmasseindeks",
+          "name" : "Kroppsmasseindeks",
+          "localizedName" : "Kroppsmasseindeks",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.body_mass_index.v2",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kroppsmasseindeks"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Beregnet verdi som gjenspeiler individets kroppsmasse på grunnlag av dens høyde og vekt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]",
+          "children" : [ {
+            "id" : "kroppsmasseindeks",
+            "name" : "Kroppsmasseindeks",
+            "localizedName" : "Kroppsmasseindeks",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Kroppsmasseindeks"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Indeks som beskriver forholdet mellom vekt og høyde."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]/data[at0001]/events[at0002,'Innkomst']/data[at0003]/items[at0004]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<",
+                  "max" : 1000.0
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "kg/m2",
+                "label" : "kg/m2",
+                "localizedLabels" : {
+                  "nb" : "kg/m²"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<",
+                    "max" : 1000.0
+                  }
+                }
+              } ]
+            } ],
+            "termBindings" : {
+              "SNOMED-CT" : {
+                "value" : "[SNOMED-CT::60621009]",
+                "terminologyId" : "SNOMED-CT"
+              },
+              "LOINC" : {
+                "value" : "[LOINC::39156-5]",
+                "terminologyId" : "LOINC"
+              }
+            }
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]/data[at0001]/events[at0002,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "kroppsoverflate",
+          "name" : "Kroppsoverflate",
+          "localizedName" : "Kroppsoverflate",
+          "rmType" : "OBSERVATION",
+          "nodeId" : "openEHR-EHR-OBSERVATION.body_surface_area.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Kroppsoverflate"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Måling eller beregning av en persons kroppsoverflate."
+          },
+          "annotations" : {
+            "comment" : "Refereres også til som BSA (body surface area)."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]",
+          "children" : [ {
+            "id" : "kroppsoverflate",
+            "name" : "Kroppsoverflate",
+            "localizedName" : "Kroppsoverflate",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Kroppsoverflate"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Et individs målte eller beregnede kroppsoverflate."
+            },
+            "annotations" : {
+              "comment" : "For eksempel: \"1,81 m²\"."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/data[at0001]/events[at0002,'Innkomst']/data[at0003]/items[at0004]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 2,
+                  "maxOp" : "<=",
+                  "max" : 2
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "m2",
+                "label" : "m2",
+                "localizedLabels" : {
+                  "nb" : "m²"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 2,
+                    "maxOp" : "<=",
+                    "max" : 2
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "time",
+            "name" : "Time",
+            "rmType" : "DV_DATE_TIME",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/data[at0001]/events[at0002,'Innkomst']/time",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ],
+            "inContext" : true
+          }, {
+            "id" : "metode",
+            "name" : "Metode",
+            "localizedName" : "Metode",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0009",
+            "min" : 0,
+            "max" : 1,
+            "dependsOn" : [ "kroppsoverflate" ],
+            "localizedNames" : {
+              "nb" : "Metode"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Metoden man har brukt for å estimere kroppsoverflate."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/protocol[at0005]/items[at0009]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0010",
+                "label" : "Automatisk registrering",
+                "localizedLabels" : {
+                  "nb" : "Automatisk registrering"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Målingen ble beregnet og registrert automatisk av applikasjonen, uten noen manuell handling fra en kliniker."
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "formel",
+            "name" : "Formel",
+            "localizedName" : "Formel",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0006",
+            "min" : 0,
+            "max" : 1,
+            "dependsOn" : [ "kroppsoverflate" ],
+            "localizedNames" : {
+              "nb" : "Formel"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Formelen som er benyttet for å regne ut kroppsoverflaten. En rekke ulike formler er etablert."
+            },
+            "annotations" : {
+              "comment" : "For eksempel: Mosteller, DuBois og DuBois, Haycock og Boyd."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/protocol[at0005]/items[at0006]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0012",
+                "label" : "Dubois og Dubois",
+                "localizedLabels" : {
+                  "nb" : "Dubois og Dubois"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Dubois og Dubois-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              }, {
+                "value" : "at0013",
+                "label" : "Mosteller",
+                "localizedLabels" : {
+                  "nb" : "Mosteller"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Mosteller-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              }, {
+                "value" : "at0014",
+                "label" : "Haycock",
+                "localizedLabels" : {
+                  "nb" : "Haycock"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Haycock-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              }, {
+                "value" : "at0015",
+                "label" : "Gehan og George",
+                "localizedLabels" : {
+                  "nb" : "Gehan og George"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Gehan og George-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              }, {
+                "value" : "at0016",
+                "label" : "Boyd",
+                "localizedLabels" : {
+                  "nb" : "Boyd"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Boyd-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              }, {
+                "value" : "at0017",
+                "label" : "Fujimoto",
+                "localizedLabels" : {
+                  "nb" : "Fujimoto"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Fujimoto-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              }, {
+                "value" : "at0018",
+                "label" : "Takihara",
+                "localizedLabels" : {
+                  "nb" : "Takihara"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Takihara-formelen ble benyttet for å regne ut kroppsoverflaten."
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        }, {
+          "id" : "vitalia_referanser_dips",
+          "name" : "vitalia referanser DIPS",
+          "localizedName" : "vitalia referanser DIPS",
+          "rmType" : "ADMIN_ENTRY",
+          "nodeId" : "openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "vitalia referanser DIPS"
+          },
+          "localizedDescriptions" : {
+            "nb" : "vitalia referanser DIPS"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]",
+          "children" : [ {
+            "id" : "kroppsoverflate_referanse",
+            "name" : "Kroppsoverflate referanse",
+            "localizedName" : "Kroppsoverflate referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.kroppsoverflate_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Kroppsoverflate referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Kroppsoverflate referanse"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppsoverflate_referanse.v1]",
+            "children" : [ {
+              "id" : "kroppsoverflate",
+              "name" : "Kroppsoverflate",
+              "localizedName" : "Kroppsoverflate",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kroppsoverflate"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppsoverflate_referanse.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "m2",
+                  "label" : "m2",
+                  "localizedLabels" : {
+                    "nb" : "m²"
+                  }
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "kroppsmasseindex_referanse",
+            "name" : "kroppsmasseindex referanse",
+            "localizedName" : "kroppsmasseindex referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.kroppsmasseindex_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "kroppsmasseindex referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "kroppsmasseindex referanse"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppsmasseindex_referanse.v1]",
+            "children" : [ {
+              "id" : "kroppsmasseindex",
+              "name" : "Kroppsmasseindex",
+              "localizedName" : "Kroppsmasseindex",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kroppsmasseindex"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppsmasseindex_referanse.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "kg/m2",
+                  "label" : "kg/m2",
+                  "localizedLabels" : {
+                    "nb" : "kg/m²"
+                  }
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "høyde_lengde_referanse",
+            "name" : "Høyde/Lengde referanse",
+            "localizedName" : "Høyde/Lengde referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.hoyde_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Høyde/Lengde referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.hoyde_referanse.v1]",
+            "children" : [ {
+              "id" : "høyde_lengde",
+              "name" : "Høyde/Lengde",
+              "localizedName" : "Høyde/Lengde",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0003",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Høyde/Lengde"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.hoyde_referanse.v1]/items[at0003]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 1,
+                    "maxOp" : "<=",
+                    "max" : 1
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "cm",
+                  "label" : "cm",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1000.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 1,
+                      "maxOp" : "<=",
+                      "max" : 1
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "kroppstilling",
+              "name" : "Kroppstilling",
+              "localizedName" : "Kroppstilling",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0004",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kroppstilling"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.hoyde_referanse.v1]/items[at0004]/value",
+              "inputs" : [ {
+                "type" : "TEXT",
+                "listOpen" : true
+              }, {
+                "suffix" : "other",
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "vekt_referanse",
+            "name" : "Vekt referanse",
+            "localizedName" : "Vekt referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.vekt_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Vekt referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.vekt_referanse.v1]",
+            "children" : [ {
+              "id" : "kroppsvekt",
+              "name" : "Kroppsvekt",
+              "localizedName" : "Kroppsvekt",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0003",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Kroppsvekt"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.vekt_referanse.v1]/items[at0003]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 1,
+                    "maxOp" : "<=",
+                    "max" : 1
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "kg",
+                  "label" : "kg",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1000.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 1,
+                      "maxOp" : "<=",
+                      "max" : 1
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "påkleding",
+              "name" : "Påkleding",
+              "localizedName" : "Påkleding",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Påkleding"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.vekt_referanse.v1]/items[at0005]/value",
+              "inputs" : [ {
+                "type" : "TEXT",
+                "listOpen" : true
+              }, {
+                "suffix" : "other",
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "temperatur_referanse",
+            "name" : "Temperatur referanse",
+            "localizedName" : "Temperatur referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.kroppstemperatur_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Temperatur referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppstemperatur_referanse.v1]",
+            "children" : [ {
+              "id" : "temperatur",
+              "name" : "Temperatur",
+              "localizedName" : "Temperatur",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Temperatur"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Målt kroppstemperatur som uttrykk for kjernetemperatur."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppstemperatur_referanse.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 1,
+                    "maxOp" : "<=",
+                    "max" : 1
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "Cel",
+                  "label" : "Cel",
+                  "localizedLabels" : {
+                    "nb" : "°C"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 100.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 1,
+                      "maxOp" : "<=",
+                      "max" : 1
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "målested",
+              "name" : "Målested",
+              "localizedName" : "Målested",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0003",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Målested"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.kroppstemperatur_referanse.v1]/items[at0003]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "TEXT",
+                "listOpen" : true
+              }, {
+                "suffix" : "value",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "other",
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "respirasjon_referanse",
+            "name" : "Respirasjon referanse",
+            "localizedName" : "Respirasjon referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.respirasjon_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Respirasjon referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.respirasjon_referanse.v1]",
+            "children" : [ {
+              "id" : "frekvens",
+              "name" : "Frekvens",
+              "localizedName" : "Frekvens",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Frekvens"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.respirasjon_referanse.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "/min",
+                  "label" : "/min",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1000.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 0,
+                      "maxOp" : "<=",
+                      "max" : 0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "regelmessighet",
+              "name" : "Regelmessighet",
+              "localizedName" : "Regelmessighet",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0004",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Regelmessighet"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.respirasjon_referanse.v1]/items[at0004]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "value",
+                "type" : "TEXT"
+              } ]
+            }, {
+              "id" : "dybde",
+              "name" : "Dybde",
+              "localizedName" : "Dybde",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Dybde"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.respirasjon_referanse.v1]/items[at0005]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "value",
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "pulsoksymetri_referanse",
+            "name" : "Pulsoksymetri referanse",
+            "localizedName" : "Pulsoksymetri referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.pulsoksymetri_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Pulsoksymetri referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Referanse til Blodoksygen og beslektede målinger, målt ved pulsoksymetri eller puls-CO-oksymetri."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.pulsoksymetri_referanse.v1]",
+            "children" : [ {
+              "id" : "spo",
+              "name" : "SpO₂",
+              "localizedName" : "SpO₂",
+              "rmType" : "DV_PROPORTION",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "SpO₂"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Oksygenmetning i perifert blod, målt via pulsoksimetri."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.pulsoksymetri_referanse.v1]/items[at0002]/value",
+              "proportionTypes" : [ "percent" ],
+              "inputs" : [ {
+                "suffix" : "numerator",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              }, {
+                "suffix" : "denominator",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 100.0,
+                    "maxOp" : "<=",
+                    "max" : 100.0
+                  }
+                }
+              } ],
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::431314004]",
+                  "terminologyId" : "SNOMED-CT"
+                },
+                "LOINC" : {
+                  "value" : "[LOINC::59408-5]",
+                  "terminologyId" : "LOINC"
+                }
+              }
+            } ]
+          }, {
+            "id" : "blodtrykk_referanse",
+            "name" : "Blodtrykk referanse",
+            "localizedName" : "Blodtrykk referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.blodtrykk_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Blodtrykk referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.blodtrykk_referanse.v1]",
+            "children" : [ {
+              "id" : "systolisk",
+              "name" : "Systolisk",
+              "localizedName" : "Systolisk",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Systolisk"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Maksimalt systemisk arterielt blodtrykk - målt i systolen, det vil si i hjertets kontraksjonsfase."
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.blodtrykk_referanse.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "mm[Hg]",
+                  "label" : "mm[Hg]",
+                  "localizedLabels" : {
+                    "nb" : "mmHg"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1000.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 0,
+                      "maxOp" : "<=",
+                      "max" : 0
+                    }
+                  }
+                } ]
+              } ],
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT(2003)::163030003]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "id" : "diastolisk",
+              "name" : "Diastolisk",
+              "localizedName" : "Diastolisk",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0002",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Diastolisk"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.blodtrykk_referanse.v1]/items[at0002]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "mm[Hg]",
+                  "label" : "mm[Hg]",
+                  "localizedLabels" : {
+                    "nb" : "mmHg"
+                  },
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1000.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 0,
+                      "maxOp" : "<=",
+                      "max" : 0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "middelarterietrykk",
+              "name" : "Middelarterietrykk",
+              "localizedName" : "Middelarterietrykk",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0004",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Middelarterietrykk"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.blodtrykk_referanse.v1]/items[at0004]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL"
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT"
+              } ]
+            }, {
+              "id" : "stilling",
+              "name" : "Stilling",
+              "localizedName" : "Stilling",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0005",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Stilling"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.blodtrykk_referanse.v1]/items[at0005]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "value",
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "pulse_referanse",
+            "name" : "Pulse referanse",
+            "localizedName" : "Pulse referanse",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.pulse_referanse.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Pulse referanse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "unknown"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.pulse_referanse.v1]",
+            "children" : [ {
+              "id" : "pulsfrekvens",
+              "name" : "Pulsfrekvens",
+              "localizedName" : "Pulsfrekvens",
+              "rmType" : "DV_QUANTITY",
+              "nodeId" : "at0001",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Pulsfrekvens"
+              },
+              "localizedDescriptions" : {
+                "nb" : "*"
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.pulse_referanse.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "suffix" : "magnitude",
+                "type" : "DECIMAL",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0,
+                    "maxOp" : "<=",
+                    "max" : 1000.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 0,
+                    "maxOp" : "<=",
+                    "max" : 0
+                  }
+                }
+              }, {
+                "suffix" : "unit",
+                "type" : "CODED_TEXT",
+                "list" : [ {
+                  "value" : "/min",
+                  "label" : "/min",
+                  "validation" : {
+                    "range" : {
+                      "minOp" : ">=",
+                      "min" : 0.0,
+                      "maxOp" : "<=",
+                      "max" : 1000.0
+                    },
+                    "precision" : {
+                      "minOp" : ">=",
+                      "min" : 0,
+                      "maxOp" : "<=",
+                      "max" : 0
+                    }
+                  }
+                } ]
+              } ]
+            }, {
+              "id" : "rytme",
+              "name" : "Rytme",
+              "localizedName" : "Rytme",
+              "rmType" : "DV_CODED_TEXT",
+              "nodeId" : "at0003",
+              "min" : 0,
+              "max" : 1,
+              "localizedNames" : {
+                "nb" : "Rytme"
+              },
+              "localizedDescriptions" : {
+                "nb" : ""
+              },
+              "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/data[at0001]/items[openEHR-EHR-CLUSTER.pulse_referanse.v1]/items[at0003]/value",
+              "inputs" : [ {
+                "suffix" : "code",
+                "type" : "TEXT",
+                "listOpen" : true
+              }, {
+                "suffix" : "value",
+                "type" : "TEXT"
+              }, {
+                "suffix" : "other",
+                "type" : "TEXT"
+              } ]
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-SECTION.adhoc.v1,'Vitale målinger']/items[openEHR-EHR-ADMIN_ENTRY.vitalia_referanser_dips.v1]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      }, {
+        "id" : "status_presens_fritekst",
+        "name" : "Status presens fritekst",
+        "localizedName" : "Status presens fritekst",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Status presens fritekst"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstbeskrivelse av status presens på pasienten."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']",
+        "children" : [ {
+          "id" : "status_presens",
+          "name" : "Status presens",
+          "localizedName" : "Status presens",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Status presens"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstbeskrivelse av status presens på pasienten."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Status presens']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "reception_note_metadata_dips",
+          "name" : "Reception note metadata dips",
+          "localizedName" : "Reception note metadata dips",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1",
+          "min" : 0,
+          "max" : -1,
+          "dependsOn" : [ "status_presens" ],
+          "localizedNames" : {
+            "nb" : "Reception note metadata dips"
+          },
+          "localizedDescriptions" : {
+            "nb" : "unknown"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]",
+          "children" : [ {
+            "id" : "datakategori",
+            "name" : "Datakategori",
+            "localizedName" : "Datakategori",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Datakategori"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0010",
+                "label" : "Status presens",
+                "localizedLabels" : {
+                  "nb" : "Status presens"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Status presens']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Status presens fritekst']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "fysisk_undersøkelse",
+      "name" : "Fysisk undersøkelse",
+      "localizedName" : "Fysisk undersøkelse",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Fysisk undersøkelse"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Fysisk undersøkelse av en pasient."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']",
+      "children" : [ {
+        "id" : "funn_ved_cor_pulm_undersøkelse",
+        "name" : "Funn ved Cor/Pulm undersøkelse",
+        "localizedName" : "Funn ved Cor/Pulm undersøkelse",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Funn ved Cor/Pulm undersøkelse"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Funn ved fysisk undersøkelse av hjertet (Cor) og lunge (Pulm)."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved Cor/Pulm undersøkelse']",
+        "children" : [ {
+          "id" : "funn_ved_cor_pulm_undersøkelse",
+          "name" : "Funn ved Cor/Pulm undersøkelse",
+          "localizedName" : "Funn ved Cor/Pulm undersøkelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Funn ved Cor/Pulm undersøkelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "En narrativ beskrivelse av funn ved en fysisk undersøkelse av hjertet (Cor) og lunge (Pulm) til pasienten."
+          },
+          "annotations" : {
+            "comment" : "Kan anvendes til å registrere en tekstlig sammenfatning av en komplett klinisk undersøkelse eller nøkkelfunn ved den kliniske undersøkelsen, som vil bli understøttet av strukturerte data. Dette dataelementet kan brukes for å fange opp \"legacy data\" som ikke er tilgjengelig i et strukturert format. Detaljer om spesifikt strukturert funn inkluderes ved å bruke CLUSTER-arketyper i \"Examination Detail\" SLOT."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved Cor/Pulm undersøkelse']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Funn ved Cor/Pulm undersøkelse']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved Cor/Pulm undersøkelse']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved Cor/Pulm undersøkelse']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved Cor/Pulm undersøkelse']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved Cor/Pulm undersøkelse']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "funn_ved_ønh_undersøkelse",
+        "name" : "Funn ved ØNH undersøkelse",
+        "localizedName" : "Funn ved ØNH undersøkelse",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Funn ved ØNH undersøkelse"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Funn ved fysisk undersøkelse av en helsetjenestemottaker."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved ØNH undersøkelse']",
+        "children" : [ {
+          "id" : "funn_ved_ønh_undersøkelse",
+          "name" : "Funn ved ØNH undersøkelse",
+          "localizedName" : "Funn ved ØNH undersøkelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Funn ved ØNH undersøkelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "En narrativ beskrivelse av funn ved en fysisk undersøkelse av pasienten."
+          },
+          "annotations" : {
+            "comment" : "Kan anvendes til å registrere en tekstlig sammenfatning av en komplett klinisk undersøkelse eller nøkkelfunn ved den kliniske undersøkelsen, som vil bli understøttet av strukturerte data. Dette dataelementet kan brukes for å fange opp \"legacy data\" som ikke er tilgjengelig i et strukturert format. Detaljer om spesifikt strukturert funn inkluderes ved å bruke CLUSTER-arketyper i \"Examination Detail\" SLOT."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved ØNH undersøkelse']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Funn ved ØNH undersøkelse']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved ØNH undersøkelse']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved ØNH undersøkelse']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved ØNH undersøkelse']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Fysisk undersøkelse']/items[openEHR-EHR-OBSERVATION.exam.v1,'Funn ved ØNH undersøkelse']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "supplerende_undersøkelser",
+      "name" : "Supplerende undersøkelser",
+      "localizedName" : "Supplerende undersøkelser",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Supplerende undersøkelser"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Behov for supplerende undersøkelser."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']",
+      "children" : [ {
+        "id" : "behov_for_spesielle_undersøkelser_fritekst",
+        "name" : "Behov for spesielle undersøkelser fritekst",
+        "localizedName" : "Behov for spesielle undersøkelser fritekst",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Behov for spesielle undersøkelser fritekst"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstbeskrivelse av behov for supplerende undersøkelser av pasienten."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']",
+        "children" : [ {
+          "id" : "behov_for_spesielle_undersøkelser",
+          "name" : "Behov for spesielle undersøkelser",
+          "localizedName" : "Behov for spesielle undersøkelser",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Behov for spesielle undersøkelser"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstbeskrivelse av behov for supplerende undersøkelser av pasienten."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Behov for spesielle undersøkelser']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "reception_note_metadata_dips",
+          "name" : "Reception note metadata dips",
+          "localizedName" : "Reception note metadata dips",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1",
+          "min" : 0,
+          "max" : -1,
+          "dependsOn" : [ "behov_for_spesielle_undersøkelser" ],
+          "localizedNames" : {
+            "nb" : "Reception note metadata dips"
+          },
+          "localizedDescriptions" : {
+            "nb" : "unknown"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]",
+          "children" : [ {
+            "id" : "datakategori",
+            "name" : "Datakategori",
+            "localizedName" : "Datakategori",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Datakategori"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0011",
+                "label" : "Supplerende undersøkelser",
+                "localizedLabels" : {
+                  "nb" : "Supplerende undersøkelser"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Supplerende undersøkelser']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Behov for spesielle undersøkelser fritekst']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "vurdering_tiltak",
+      "name" : "Vurdering/tiltak",
+      "localizedName" : "Vurdering/tiltak",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 1,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Vurdering/tiltak"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Fritekstlig oppsummering, vurdering, tiltak, konklusjoner eller evaluering av de kliniske funnene."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']",
+      "children" : [ {
+        "id" : "vurdering_tiltak",
+        "name" : "Vurdering/tiltak",
+        "localizedName" : "Vurdering/tiltak",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.clinical_synopsis.v1",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Vurdering/tiltak"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstsammendrag eller oversikt om en pasient fra helsepersonellets perspektiv, med eller uten tilhørende fortolkninger."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']",
+        "children" : [ {
+          "id" : "vurdering_tiltak",
+          "name" : "Vurdering/tiltak",
+          "localizedName" : "Vurdering/tiltak",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Vurdering/tiltak"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Oppsummering, vurdering, konklusjoner eller evaluering av de kliniske funnene."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/data[at0001]/items[at0002,'Vurdering/tiltak']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "reception_note_metadata_dips",
+          "name" : "Reception note metadata dips",
+          "localizedName" : "Reception note metadata dips",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "vurdering_tiltak" ],
+          "localizedNames" : {
+            "nb" : "Reception note metadata dips"
+          },
+          "localizedDescriptions" : {
+            "nb" : "unknown"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/protocol[at0003]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]",
+          "children" : [ {
+            "id" : "datakategori",
+            "name" : "Datakategori",
+            "localizedName" : "Datakategori",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Datakategori"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/protocol[at0003]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001,'Datakategori']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0012",
+                "label" : "Vurdering",
+                "localizedLabels" : {
+                  "nb" : "Vurdering"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "datakategori_2",
+            "name" : "Datakategori (2)",
+            "localizedName" : "Datakategori (2)",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Datakategori (2)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/protocol[at0003]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001,'Datakategori (2)']/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0013",
+                "label" : "Tiltak",
+                "localizedLabels" : {
+                  "nb" : "Tiltak"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Vurdering/tiltak']/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'Vurdering/tiltak']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "sammendrag",
+      "name" : "Sammendrag",
+      "localizedName" : "Sammendrag",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Sammendrag"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Automatisk generert sammendrag av teksten i dette dokumentet."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']",
+      "children" : [ {
+        "id" : "sammendrag_av_innkomst_autogenerert",
+        "name" : "Sammendrag av innkomst (autogenerert)",
+        "localizedName" : "Sammendrag av innkomst (autogenerert)",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Sammendrag av innkomst (autogenerert)"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Autogenerert oppsummering av all informasjonen skrevet i dette dokumentet."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']",
+        "children" : [ {
+          "id" : "sammendrag_av_innkomst_autogenerert",
+          "name" : "Sammendrag av innkomst (autogenerert)",
+          "localizedName" : "Sammendrag av innkomst (autogenerert)",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Sammendrag av innkomst (autogenerert)"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstbeskrivelse av helserelaterte hendelser, status, funn eller oppfatninger på et spesifikt tidspunkt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/data[at0001]/events[at0002]/data[at0003]/items[at0004,'Sammendrag av innkomst (autogenerert)']/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "reception_note_metadata_dips",
+          "name" : "Reception note metadata dips",
+          "localizedName" : "Reception note metadata dips",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1",
+          "min" : 0,
+          "max" : -1,
+          "dependsOn" : [ "sammendrag_av_innkomst_autogenerert" ],
+          "localizedNames" : {
+            "nb" : "Reception note metadata dips"
+          },
+          "localizedDescriptions" : {
+            "nb" : "unknown"
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]",
+          "children" : [ {
+            "id" : "datakategori",
+            "name" : "Datakategori",
+            "localizedName" : "Datakategori",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "nb" : "Datakategori"
+            },
+            "localizedDescriptions" : {
+              "nb" : "*"
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/protocol[at0005]/items[openEHR-EHR-CLUSTER.reception_note_metadata_dips.v1]/items[at0001]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0013",
+                "label" : "Tiltak",
+                "localizedLabels" : {
+                  "nb" : "Tiltak"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "*"
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Sammendrag av innkomst (autogenerert)']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "tidsfestet_fritekst",
+        "name" : "Tidsfestet fritekst",
+        "localizedName" : "Tidsfestet fritekst",
+        "rmType" : "OBSERVATION",
+        "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Tidsfestet fritekst"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Fritekstbeskrivelse hentet inn fra andre opplysninger."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Tidsfestet fritekst']",
+        "children" : [ {
+          "id" : "tidfestet_fritekst",
+          "name" : "Tidfestet fritekst",
+          "localizedName" : "Tidfestet fritekst",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Tidfestet fritekst"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstbeskrivelse av helserelaterte hendelser, status, funn eller oppfatninger på et spesifikt tidspunkt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Tidsfestet fritekst']/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Tidsfestet fritekst']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Tidsfestet fritekst']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Tidsfestet fritekst']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Sammendrag']/items[openEHR-EHR-OBSERVATION.progress_note.v1,'Tidsfestet fritekst']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "nb" : ""
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

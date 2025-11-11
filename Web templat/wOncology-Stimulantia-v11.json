@@ -1,0 +1,1175 @@
+{
+  "templateId" : "Oncology-Stimulantia-v11",
+  "semVer" : "6.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "nb",
+  "languages" : [ "nb" ],
+  "tree" : {
+    "id" : "klinisk_kontakt",
+    "name" : "Klinisk kontakt",
+    "localizedName" : "Klinisk kontakt",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "nb" : "Klinisk kontakt"
+    },
+    "localizedDescriptions" : {
+      "nb" : "Interaksjon, kontakt eller omsorgshendelse mellom et individ og helsepersonell."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "template_versjonsinformasjon",
+        "name" : "Template versjonsinformasjon",
+        "localizedName" : "Template versjonsinformasjon",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.template_semver_dips.v1",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "nb" : "Template versjonsinformasjon"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Informasjon om templatens semantiske versjonering"
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]",
+        "children" : [ {
+          "id" : "navn",
+          "name" : "Navn",
+          "localizedName" : "Navn",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Navn"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*The name/title of the composition. Used to group information. (nb)"
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "TM4",
+              "label" : "Onkologi stimulantia",
+              "localizedLabels" : {
+                "nb" : "Onkologi stimulantia"
+              }
+            } ],
+            "terminology" : "no.dips.oncology"
+          } ]
+        }, {
+          "id" : "semver",
+          "name" : "Semver",
+          "localizedName" : "Semver",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Semver"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Semantisk versjonering av templaten. "
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]",
+          "children" : [ {
+            "id" : "major",
+            "name" : "Major",
+            "localizedName" : "Major",
+            "rmType" : "DV_COUNT",
+            "nodeId" : "at0004",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Major"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Markerer brytende endringer i templaten"
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.template_semver_dips.v1]/items[at0003]/items[at0004]/value",
+            "inputs" : [ {
+              "type" : "INTEGER",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0
+                }
+              }
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "stimulantia",
+      "name" : "Stimulantia",
+      "localizedName" : "Stimulantia",
+      "rmType" : "SECTION",
+      "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "nb" : "Stimulantia"
+      },
+      "localizedDescriptions" : {
+        "nb" : "En generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst."
+      },
+      "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']",
+      "children" : [ {
+        "id" : "alkohol",
+        "name" : "Alkohol",
+        "localizedName" : "Alkohol",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Alkohol"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Sammendrag eller detaljer om et individs tidligere og nåværende bruk av alkohol."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']",
+        "children" : [ {
+          "id" : "overordnet_status",
+          "name" : "Overordnet status",
+          "localizedName" : "Overordnet status",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0089",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet status"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Utsagn om nåværende atferd og bruk for alle typer alkohol."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/data[at0001]/items[at0089]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0003",
+              "label" : "Nåværende bruker",
+              "localizedLabels" : {
+                "nb" : "Nåværende bruker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet drikker alkohol."
+              }
+            }, {
+              "value" : "at0005",
+              "label" : "Tidligere bruker",
+              "localizedLabels" : {
+                "nb" : "Tidligere bruker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet har drukket alkohol tidligere, men drikker ikke nå."
+              }
+            }, {
+              "value" : "at0006",
+              "label" : "Aldri brukt",
+              "localizedLabels" : {
+                "nb" : "Aldri brukt"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet har aldri drukket alkohol."
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "overordnet_beskrivelse",
+          "name" : "Overordnet beskrivelse",
+          "localizedName" : "Overordnet beskrivelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0043",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet beskrivelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Oppsummering i fritekst om et individs overordnede mønster og historie knyttet til alkoholinntak."
+          },
+          "annotations" : {
+            "comment" : "Bruk dette elementet for å registrere en beskrivelse i fritekst om drikkevaner for dette individet, eller for å overføre til arketypeformat ustrukturert informasjon om drikkevaner fra et eksisterende eller tidligere brukt klinisk system."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/data[at0001]/items[at0043]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "per_episode",
+          "name" : "Per episode",
+          "localizedName" : "Per episode",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0064",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Per episode"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Detaljer om en avgrenset eller pågående episode med et vedvarende mønster i drikkevaner."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/data[at0001]/items[at0064]",
+          "children" : [ {
+            "id" : "typisk_bruk_alkoholenheter",
+            "name" : "Typisk bruk (alkoholenheter)",
+            "localizedName" : "Typisk bruk (alkoholenheter)",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0023",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Typisk bruk (alkoholenheter)"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Estimat på antall alkoholenheter som ble drukket."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/data[at0001]/items[at0064]/items[at0023]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL"
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1/wk",
+                "label" : "1/wk",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  }
+                }
+              }, {
+                "value" : "1/d",
+                "label" : "1/d",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  }
+                }
+              }, {
+                "value" : "1/mo",
+                "label" : "1/mo",
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  }
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "sist_oppdatert",
+          "name" : "Sist oppdatert",
+          "localizedName" : "Sist oppdatert",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "overordnet_beskrivelse", "per_episode", "overordnet_status" ],
+          "localizedNames" : {
+            "nb" : "Sist oppdatert"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Dato når sammendraget av alkoholbruk sist ble oppdatert."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/protocol[at0021]/items[at0022]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.alcohol_consumption_summary.v1,'Alkohol']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "røyk",
+        "name" : "Røyk",
+        "localizedName" : "Røyk",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Røyk"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Sammendrag eller detaljer om et individs tidligere og nåværende tobakksrøykevaner."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']",
+        "children" : [ {
+          "id" : "overordnet_status",
+          "name" : "Overordnet status",
+          "localizedName" : "Overordnet status",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0089",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet status"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Utsagn om nåværende røykeadferd for alle typer tobakk."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/data[at0001]/items[at0089]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0006",
+              "label" : "Aldri røykt",
+              "localizedLabels" : {
+                "nb" : "Aldri røykt"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet har aldri røykt tobakk."
+              }
+            }, {
+              "value" : "at0003",
+              "label" : "Røyker",
+              "localizedLabels" : {
+                "nb" : "Røyker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet er en nåværende tobakksrøyker."
+              }
+            }, {
+              "value" : "at0005",
+              "label" : "Tidligere røyker",
+              "localizedLabels" : {
+                "nb" : "Tidligere røyker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet har tidligere røykt tobakk, men er ikke en nåværende røyker."
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "overordnet_beskrivelse",
+          "name" : "Overordnet beskrivelse",
+          "localizedName" : "Overordnet beskrivelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0043",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet beskrivelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstsammendrag om individets overordnede røykemønster og historikk."
+          },
+          "annotations" : {
+            "comment" : "Bruk dette datalementet til å registrere en fritekstbeskrivelse av individets tobakksrøykevaner, eller for å overføre ustrukturert informasjon fra eksisterende eller tidligere kliniske systemer til arketypeformat."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/data[at0001]/items[at0043]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "samlet_pakkeår",
+          "name" : "Samlet pakkeår",
+          "localizedName" : "Samlet pakkeår",
+          "rmType" : "DV_COUNT",
+          "nodeId" : "at0074",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Samlet pakkeår"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Anslått kumulativ mengde av alle tobakkstyper som er røykt."
+          },
+          "annotations" : {
+            "comment" : "Definisjonen på en pakke kan registreres i protokollen av denne arketypen, ved å bruke dataelementet \"Pakkedefinisjon\"."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/data[at0001]/items[at0074]/value",
+          "inputs" : [ {
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "sist_oppdatert",
+          "name" : "Sist oppdatert",
+          "localizedName" : "Sist oppdatert",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "overordnet_beskrivelse", "samlet_pakkeår", "overordnet_status" ],
+          "localizedNames" : {
+            "nb" : "Sist oppdatert"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Datoen da sammendraget av tobakksbruk sist ble oppdatert."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/protocol[at0021]/items[at0022]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.tobacco_smoking_summary.v1,'Røyk']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "røykfri_tobakk_snus",
+        "name" : "Røykfri tobakk/snus",
+        "localizedName" : "Røykfri tobakk/snus",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Røykfri tobakk/snus"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Sammendrag eller varig (persistent) informasjon om individets bruk av røykfri tobakk."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']",
+        "children" : [ {
+          "id" : "overordnet_status",
+          "name" : "Overordnet status",
+          "localizedName" : "Overordnet status",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0089",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet status"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Utsagn om nåværende bruksmønster for alle typer røykfri tobakk."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']/data[at0001]/items[at0089]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0006",
+              "label" : "Aldri brukt",
+              "localizedLabels" : {
+                "nb" : "Aldri brukt"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet har aldri brukt noen typer røykfri tobakk."
+              }
+            }, {
+              "value" : "at0003",
+              "label" : "Nåværende bruker",
+              "localizedLabels" : {
+                "nb" : "Nåværende bruker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet er en nåværende bruker av røykfri tobakk."
+              }
+            }, {
+              "value" : "at0005",
+              "label" : "Tidligere bruker",
+              "localizedLabels" : {
+                "nb" : "Tidligere bruker"
+              },
+              "localizedDescriptions" : {
+                "nb" : "Individet har tidligere brukt røykfri tobakk, men er ikke en nåværende bruker."
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "overordnet_beskrivelse",
+          "name" : "Overordnet beskrivelse",
+          "localizedName" : "Overordnet beskrivelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0043",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet beskrivelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstsammendrag om individets overordnede bruksmønster og historikk for røykfri tobakk."
+          },
+          "annotations" : {
+            "comment" : "Bruk dette datalementet til å registrere en fritekstbeskrivelse kun der data som er registrert strukturert ikke reflekterer individets bruk av røykfri tobakk på en tilfredsstillende måte, eller for å overføre ustrukturert informasjon om bruk av røykfri tobakk fra eksisterende eller tidligere kliniske systemer til arketypeformat."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']/data[at0001]/items[at0043]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "sist_oppdatert",
+          "name" : "Sist oppdatert",
+          "localizedName" : "Sist oppdatert",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "overordnet_beskrivelse", "overordnet_status" ],
+          "localizedNames" : {
+            "nb" : "Sist oppdatert"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Datoen da sammendraget av bruk av røykfri tobakk sist ble oppdatert."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']/protocol[at0021]/items[at0022]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.smokeless_tobacco_summary.v1,'Røykfri tobakk/snus']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "sammendrag_andre_substanser",
+        "name" : "Sammendrag andre substanser",
+        "localizedName" : "Sammendrag andre substanser",
+        "rmType" : "EVALUATION",
+        "nodeId" : "openEHR-EHR-EVALUATION.substance_use_summary.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Sammendrag andre substanser"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Sammendrag eller varig (persistent) informasjon om bruksmønsteret individet vanligvis har av en spesifikk substans eller klasse av substanser som kan ha skadelige effekter på individets helse eller sosiale velferd."
+        },
+        "annotations" : {
+          "comment" : "Tobakksrøyking, bruk av røykfri tobakk, alkoholbruk, damping (vaping) og administrasjon av medikamenter i henhold til etablerte medisinske retningslinjer og standarder er bevisst holdt utenfor konseptet, og skal registreres ved å bruke andre arketyper laget for formålet."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']",
+        "children" : [ {
+          "id" : "substansnavn",
+          "name" : "Substansnavn",
+          "localizedName" : "Substansnavn",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0002",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Substansnavn"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Navnet på substansen eller klassen av substanser."
+          },
+          "annotations" : {
+            "comment" : "Koding med ekstern terminologi anbefales om det er mulig."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']/data[at0001]/items[at0002]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "osub",
+              "label" : "Annen substans",
+              "localizedLabels" : {
+                "nb" : "Annen substans"
+              }
+            } ],
+            "terminology" : "no.onk.substansbruk"
+          } ]
+        }, {
+          "id" : "overordnet_beskrivelse",
+          "name" : "Overordnet beskrivelse",
+          "localizedName" : "Overordnet beskrivelse",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0007",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Overordnet beskrivelse"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstsammendrag om bruk av substansen gjennom individets livsløp."
+          },
+          "annotations" : {
+            "comment" : "Dette elementet kan også brukes til å ta inn fritekstlige beskrivelser av substansbruk fra eksisterende eller historiske kliniske systemer."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']/data[at0001]/items[at0007]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "sist_oppdatert",
+          "name" : "Sist oppdatert",
+          "localizedName" : "Sist oppdatert",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0031",
+          "min" : 0,
+          "max" : 1,
+          "dependsOn" : [ "substansnavn", "overordnet_beskrivelse" ],
+          "localizedNames" : {
+            "nb" : "Sist oppdatert"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Datoen da Substansbruk sist ble oppdatert."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']/protocol[at0029]/items[at0031]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "language",
+          "name" : "Language",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']/language",
+          "inContext" : true
+        }, {
+          "id" : "encoding",
+          "name" : "Encoding",
+          "rmType" : "CODE_PHRASE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']/encoding",
+          "inContext" : true
+        }, {
+          "id" : "subject",
+          "name" : "Subject",
+          "rmType" : "PARTY_PROXY",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1,'Sammendrag andre substanser']/subject",
+          "inputs" : [ {
+            "suffix" : "id",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_scheme",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "id_namespace",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "name",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "andre_substanser",
+        "name" : "Andre substanser",
+        "localizedName" : "Andre substanser",
+        "rmType" : "SECTION",
+        "nodeId" : "openEHR-EHR-SECTION.adhoc.v1",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "nb" : "Andre substanser"
+        },
+        "localizedDescriptions" : {
+          "nb" : "En generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst."
+        },
+        "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']",
+        "children" : [ {
+          "id" : "substansanamnese",
+          "name" : "Substansanamnese",
+          "localizedName" : "Substansanamnese",
+          "rmType" : "EVALUATION",
+          "nodeId" : "openEHR-EHR-EVALUATION.substance_use_summary.v1",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "nb" : "Substansanamnese"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Sammendrag eller varig (persistent) informasjon om bruksmønsteret individet vanligvis har av en spesifikk substans eller klasse av substanser som kan ha skadelige effekter på individets helse eller sosiale velferd."
+          },
+          "annotations" : {
+            "comment" : "Tobakksrøyking, bruk av røykfri tobakk, alkoholbruk, damping (vaping) og administrasjon av medikamenter i henhold til etablerte medisinske retningslinjer og standarder er bevisst holdt utenfor konseptet, og skal registreres ved å bruke andre arketyper laget for formålet."
+          },
+          "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]",
+          "children" : [ {
+            "id" : "substansnavn",
+            "name" : "Substansnavn",
+            "localizedName" : "Substansnavn",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0002",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Substansnavn"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Navnet på substansen eller klassen av substanser."
+            },
+            "annotations" : {
+              "comment" : "Koding med ekstern terminologi anbefales om det er mulig."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/data[at0001]/items[at0002]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "overordnet_status",
+            "name" : "Overordnet status",
+            "localizedName" : "Overordnet status",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0003",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Overordnet status"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Utsagn om nåværende substansbruk, uavhengig av administrasjonsvei."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/data[at0001]/items[at0003]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0004",
+                "label" : "Aldri brukt",
+                "localizedLabels" : {
+                  "nb" : "Aldri brukt"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Individet har aldri brukt den identifiserte substansen."
+                }
+              }, {
+                "value" : "at0005",
+                "label" : "Nåværende bruker",
+                "localizedLabels" : {
+                  "nb" : "Nåværende bruker"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Individet er nåværende bruker av den identifiserte substansen."
+                }
+              }, {
+                "value" : "at0006",
+                "label" : "Tidligere bruker",
+                "localizedLabels" : {
+                  "nb" : "Tidligere bruker"
+                },
+                "localizedDescriptions" : {
+                  "nb" : "Individet har tidligere brukt den identifiserte substansen."
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "overordnet_beskrivelse",
+            "name" : "Overordnet beskrivelse",
+            "localizedName" : "Overordnet beskrivelse",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0007",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "nb" : "Overordnet beskrivelse"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Fritekstsammendrag om bruk av substansen gjennom individets livsløp."
+            },
+            "annotations" : {
+              "comment" : "Dette elementet kan også brukes til å ta inn fritekstlige beskrivelser av substansbruk fra eksisterende eller historiske kliniske systemer."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/data[at0001]/items[at0007]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "sist_oppdatert",
+            "name" : "Sist oppdatert",
+            "localizedName" : "Sist oppdatert",
+            "rmType" : "DV_DATE_TIME",
+            "nodeId" : "at0031",
+            "min" : 0,
+            "max" : 1,
+            "dependsOn" : [ "substansnavn", "overordnet_beskrivelse", "overordnet_status" ],
+            "localizedNames" : {
+              "nb" : "Sist oppdatert"
+            },
+            "localizedDescriptions" : {
+              "nb" : "Datoen da Substansbruk sist ble oppdatert."
+            },
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/protocol[at0029]/items[at0031]/value",
+            "inputs" : [ {
+              "type" : "DATETIME"
+            } ]
+          }, {
+            "id" : "language",
+            "name" : "Language",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/language",
+            "inContext" : true
+          }, {
+            "id" : "encoding",
+            "name" : "Encoding",
+            "rmType" : "CODE_PHRASE",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/encoding",
+            "inContext" : true
+          }, {
+            "id" : "subject",
+            "name" : "Subject",
+            "rmType" : "PARTY_PROXY",
+            "min" : 1,
+            "max" : 1,
+            "aqlPath" : "/content[openEHR-EHR-SECTION.adhoc.v1,'Stimulantia']/items[openEHR-EHR-SECTION.adhoc.v1,'Andre substanser']/items[openEHR-EHR-EVALUATION.substance_use_summary.v1]/subject",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_scheme",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "id_namespace",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "name",
+              "type" : "TEXT"
+            } ],
+            "inContext" : true
+          } ]
+        } ]
+      } ]
+    }, {
+      "id" : "tidfestet_fritekst",
+      "name" : "Tidfestet fritekst",
+      "localizedName" : "Tidfestet fritekst",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
+      "min" : 0,
+      "max" : -1,
+      "localizedNames" : {
+        "nb" : "Tidfestet fritekst"
+      },
+      "localizedDescriptions" : {
+        "nb" : "Fritekstbeskrivelse av et individs helserelaterte hendelser på et spesifikt tidspunkt, sett fra helsepersonellets synsvinkel."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]",
+      "children" : [ {
+        "id" : "uspesifisert_hendelse",
+        "name" : "Uspesifisert hendelse",
+        "localizedName" : "Uspesifisert hendelse",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "nb" : "Uspesifisert hendelse"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i en template eller i en applikasjon."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "tidfestet_fritekst",
+          "name" : "Tidfestet fritekst",
+          "localizedName" : "Tidfestet fritekst",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Tidfestet fritekst"
+          },
+          "localizedDescriptions" : {
+            "nb" : "Fritekstbeskrivelse av helserelaterte hendelser, status, funn eller oppfatninger på et spesifikt tidspunkt."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "semistrukturert_metadata_dips",
+        "name" : "Semistrukturert metadata dips",
+        "localizedName" : "Semistrukturert metadata dips",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1",
+        "min" : 0,
+        "max" : -1,
+        "dependsOn" : [ "uspesifisert_hendelse" ],
+        "localizedNames" : {
+          "nb" : "Semistrukturert metadata dips"
+        },
+        "localizedDescriptions" : {
+          "nb" : "Semistrukturert metadata dips"
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/protocol[at0005]/items[openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1]",
+        "children" : [ {
+          "id" : "klassifisering_av_informasjon",
+          "name" : "Klassifisering av informasjon",
+          "localizedName" : "Klassifisering av informasjon",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "nb" : "Klassifisering av informasjon"
+          },
+          "localizedDescriptions" : {
+            "nb" : "*"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/protocol[at0005]/items[openEHR-EHR-CLUSTER.semistrukturert_metadata_dips.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "11-SammendragAvStimulantia",
+              "label" : "Sammendrag av stimulantia",
+              "localizedLabels" : {
+                "nb" : "Sammendrag av stimulantia"
+              }
+            } ],
+            "terminology" : "no.dips.Freetext.Classification"
+          } ]
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.progress_note.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "nb" : ""
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}
